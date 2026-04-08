@@ -1,0 +1,98 @@
+/* ─── 底部導覽列容器 ─────────────────────────────── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background: var(--color-nav-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: stretch;
+  z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ─── 每個導覽項目 ──────────────────────────────── */
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  opacity: 0.45;
+  padding: 6px 2px 8px;
+  position: relative;
+  transition: opacity 200ms ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* ─── Active 指示線（頂部金色）─────────────────── */
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 70%;
+  height: 2px;
+  background: var(--color-gold);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+/* ─── Active 狀態 ───────────────────────────────── */
+.nav-item.active {
+  opacity: 1;
+}
+
+.nav-item.active::before {
+  opacity: 1;
+}
+
+/* ─── 圖示 ──────────────────────────────────────── */
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* ─── 文字標籤 ──────────────────────────────────── */
+.nav-label {
+  font-size: 11px;
+  font-family: 'Karla', sans-serif;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* ─── 手機 RWD ──────────────────────────────────── */
+@media (max-width: 767px) {
+  .nav-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-label {
+    font-size: 9px;
+  }
+}
+
+/* ─── Hover（桌機）──────────────────────────────── */
+@media (hover: hover) {
+  .nav-item:not(.active):hover {
+    opacity: 0.75;
+  }
+}
