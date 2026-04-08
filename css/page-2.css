@@ -1,0 +1,57 @@
+/* ─── 頁面 2：顧客守則 ─────────────────────────── */
+#page-2 {
+	background:
+		linear-gradient(180deg, rgba(7, 5, 10, 0.36) 0%, rgba(7, 5, 10, 0.60) 100%),
+		url('../assets/images/customer.png') top center / cover no-repeat;
+}
+
+.customer-panel {
+	position: relative;
+	width: min(50vw, 640px);
+	flex: 1 1 auto;
+	min-height: 180px;
+	margin-top: clamp(48px, 4vh, 60px);
+	background: #8066bb66;
+    border-radius: 48px;
+	backdrop-filter: blur(2px);
+    
+	-webkit-backdrop-filter: blur(2px);
+}
+
+.customer-panel::before,
+.customer-panel::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: min(86vw, 820px);
+	height: 24px;
+	background: url('../assets/images/customer-line-divider.png') center center / contain no-repeat;
+	pointer-events: none;
+}
+
+.customer-panel::before {
+	top: -34px;
+	transform: translateX(-50%) rotate(180deg);
+}
+
+.customer-panel::after {
+	bottom: -34px;
+}
+
+@media (max-width: var(--bp-mobile-max)) {
+	#page-2 {
+		background-position: 62% center;
+	}
+
+	.customer-panel {
+		width: min(84vw, 560px);
+		min-height: 140px;
+	}
+
+	.customer-panel::before,
+	.customer-panel::after {
+		width: min(92vw, 620px);
+		height: 20px;
+	}
+}
