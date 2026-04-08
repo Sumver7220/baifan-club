@@ -5,15 +5,8 @@
   var navItems = document.querySelectorAll('.nav-item');
   var currentPage = 0;
 
-  /**
-   * 切換至指定頁面
-   * @param {number} index - 目標頁碼（0–8）
-   */
   function goToPage(index) {
-    // 移動 track
     track.style.transform = 'translateX(-' + (index * 100) + 'vw)';
-
-    // 更新導覽列 active 狀態
     navItems.forEach(function (item) {
       var isActive = parseInt(item.dataset.target, 10) === index;
       item.classList.toggle('active', isActive);
@@ -23,21 +16,69 @@
         item.removeAttribute('aria-current');
       }
     });
-
     currentPage = index;
   }
 
-  // ─── 導覽列點擊事件 ───────────────────────────────
   navItems.forEach(function (item) {
     item.addEventListener('click', function () {
-      var target = parseInt(this.dataset.target, 10);
-      // 確保 track 有 transition（可能被觸控手勢移除）
       track.style.transition = '';
-      goToPage(target);
+      goToPage(parseInt(this.dataset.target, 10));
     });
   });
 
-  // ─── 初始化：顯示第 0 頁 ──────────────────────────
+  // ─── 觸控滑動手勢 ─────────────────────────────────
+  var viewport = document.querySelector('.viewport');
+  var touchStartX = 0;
+  var touchStartY = 0;
+  var isHorizontalSwipe = null;
+
+  viewport.addEventListener('touchstart', function (e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    isHorizontalSwipe = null;
+    track.style.transition = 'none';
+  }, { passive: true });
+
+  viewport.addEventListener('touchmove', function (e) {
+    var deltaX = e.touches[0].clientX - touchStartX;
+    var deltaY = e.touches[0].clientY - touchStartY;
+
+    if (isHorizontalSwipe === null && (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5)) {
+      isHorizontalSwipe = Math.abs(deltaX) > Math.abs(deltaY);
+    }
+
+    if (isHorizontalSwipe !== true) return;
+
+    e.preventDefault();
+
+    var baseOffset = currentPage * window.innerWidth;
+    var newOffset = baseOffset - deltaX;
+    var minOffset = 0;
+    var maxOffset = 8 * window.innerWidth;
+    newOffset = Math.max(minOffset, Math.min(maxOffset, newOffset));
+
+    track.style.transform = 'translateX(-' + newOffset + 'px)';
+  }, { passive: false });
+
+  viewport.addEventListener('touchend', function (e) {
+    track.style.transition = '';
+
+    if (isHorizontalSwipe !== true) return;
+
+    var deltaX = e.changedTouches[0].clientX - touchStartX;
+
+    if (deltaX < -50 && currentPage < 8) {
+      goToPage(currentPage + 1);
+    } else if (deltaX > 50 && currentPage > 0) {
+      goToPage(currentPage - 1);
+    } else {
+      goToPage(currentPage);
+    }
+
+    isHorizontalSwipe = null;
+  }, { passive: true });
+
+  // ─── 初始化 ───────────────────────────────────────
   goToPage(0);
 
 })();
