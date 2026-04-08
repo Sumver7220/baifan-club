@@ -5,14 +5,14 @@
   left: 0;
   width: 100%;
   height: var(--nav-height);
-  background: var(--color-nav-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
   display: flex;
   align-items: stretch;
   z-index: 100;
-  padding-bottom: env(safe-area-inset-bottom);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: var(--space-lg);
+  gap: var(--space-lg);
+  border-top: var(--border-thin) solid rgba(255, 255, 255, 0.06);
 }
 
 /* ─── 每個導覽項目 ──────────────────────────────── */
@@ -22,45 +22,60 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  background: none;
-  border: none;
+  gap: var(--space-lg);
+  background: #000000A5;
+  border: var(--border-thin) solid #000000A5;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   color: var(--color-text);
-  opacity: 0.45;
-  padding: 6px 2px 8px;
+  opacity: 0.5;
+  padding: var(--space-xs) var(--space-2xs);
   position: relative;
-  transition: opacity 200ms ease;
+  transition: opacity var(--duration-fast) ease, background var(--duration-fast) ease,
+    border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+  backdrop-filter: blur(var(--blur-sm)) saturate(115%);
+  -webkit-backdrop-filter: blur(var(--blur-sm)) saturate(115%);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
-}
-
-/* ─── Active 指示線（頂部金色）─────────────────── */
-.nav-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 15%;
-  width: 70%;
-  height: 2px;
-  background: var(--color-gold);
-  opacity: 0;
-  transition: opacity 200ms ease;
 }
 
 /* ─── Active 狀態 ───────────────────────────────── */
 .nav-item.active {
   opacity: 1;
+  position: relative; 
+  
+  /* 1. 確保清除原本的邊框，這是消除「最左邊一點點白色」的關鍵 */
+  border: none; 
+  /* (或者使用 border: var(--radius-sm) solid transparent; 避免排版位移) */
+  
+  /* 2. 背景漸層維持不變 */
+  background: linear-gradient(90deg, #000000A5, #5a5a5aA5);
 }
 
 .nav-item.active::before {
-  opacity: 1;
+  content: "";
+  position: absolute;
+  inset: 0; 
+  border-radius: inherit;
+  
+  padding: var(--radius-sm); /* 漸層邊框的粗細 */
+  
+  /* 3. 調整邊框左側顏色創造對比，這裡將左側改為較不透明的黑 (#00000099) 作為示範 */
+  background: linear-gradient(90deg, #000000A5, #ffffffA5);
+  
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  
+  pointer-events: none; 
 }
 
 /* ─── 圖示 ──────────────────────────────────────── */
 .nav-icon {
-  width: 24px;
-  height: 24px;
+  width: var(--nav-icon-size);
+  height: var(--nav-icon-size);
   stroke: currentColor;
   fill: none;
   stroke-width: 1.5;
@@ -71,22 +86,22 @@
 
 /* ─── 文字標籤 ──────────────────────────────────── */
 .nav-label {
-  font-size: 11px;
-  font-family: 'Karla', sans-serif;
+  font-family: 'BaifanFangsong', 'BaifanCustom', serif;
+  font-size: var(--font-base);
   letter-spacing: 0.05em;
   white-space: nowrap;
   line-height: 1;
 }
 
 /* ─── 手機 RWD ──────────────────────────────────── */
-@media (max-width: 767px) {
+@media (max-width: var(--bp-mobile-max)) {
   .nav-icon {
-    width: 22px;
-    height: 22px;
+    width: var(--nav-icon-size-mobile);
+    height: var(--nav-icon-size-mobile);
   }
 
   .nav-label {
-    font-size: 9px;
+    font-size: var(--font-xs);
   }
 }
 
