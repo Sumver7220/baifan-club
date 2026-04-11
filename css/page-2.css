@@ -1,57 +1,107 @@
+@charset "UTF-8";
 /* ─── 頁面 2：顧客守則 ─────────────────────────── */
 #page-2 {
-	background:
-		linear-gradient(180deg, rgba(7, 5, 10, 0.36) 0%, rgba(7, 5, 10, 0.60) 100%),
-		url('../assets/images/customer.png') top center / cover no-repeat;
+  background: linear-gradient(180deg, rgba(7, 5, 10, 0.36) 0%, rgba(7, 5, 10, 0.6) 100%), url("../assets/images/customer.png") top center/cover no-repeat;
+}
+
+.customer-content {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.customer-title {
+  padding-top: 1.5rem;
+  /* 內容物置中 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.customer-title h1 {
+  text-align: center;
+  font-size: var(--font-hero);
+  letter-spacing: 0.5em;
+  text-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.6078431373);
+}
+.customer-title p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  font-size: var(--font-lead-fluid);
+  letter-spacing: 0.32em;
+  color: rgba(255, 255, 255, 0.6078431373);
+  margin-top: var(--space-sm);
+}
+.customer-title p::before,
+.customer-title p::after {
+  content: "";
+  width: var(--lead-line-width);
+  height: var(--border-thin);
+  background: currentColor;
+  opacity: 0.75;
 }
 
 .customer-panel {
-	position: relative;
-	width: min(50vw, 640px);
-	flex: 1 1 auto;
-	min-height: 180px;
-	margin-top: clamp(48px, 4vh, 60px);
-	background: #8066bb66;
-    border-radius: 48px;
-	backdrop-filter: blur(2px);
-    
-	-webkit-backdrop-filter: blur(2px);
+  opacity: 0.8;
+  font-family: "BaifanFangsong", "BaifanCustom", serif;
+  font-size: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+  width: min(50vw, 640px);
+  flex: 1;
+  min-height: 0;
+  background: rgba(128, 102, 187, 0.4);
+  border-radius: 48px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
-.customer-panel::before,
-.customer-panel::after {
-	content: "";
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	width: min(86vw, 820px);
-	height: 24px;
-	background: url('../assets/images/customer-line-divider.png') center center / contain no-repeat;
-	pointer-events: none;
+.customer-divider {
+  flex-shrink: 0;
+  align-self: center;
+  width: 86vw;
+  height: 24px;
+  background: url("../assets/images/customer-line-divider.png") center center/contain no-repeat;
+  pointer-events: none;
 }
 
-.customer-panel::before {
-	top: -34px;
-	transform: translateX(-50%) rotate(180deg);
+.customer-divider-top {
+  margin-bottom: 0.125rem;
+  margin-top: 1rem;
+  transform: rotate(180deg);
 }
 
-.customer-panel::after {
-	bottom: -34px;
+.customer-divider-bottom {
+  margin-top: 0.125rem;
+  margin-bottom: 1rem;
 }
 
-@media (max-width: var(--bp-mobile-max)) {
-	#page-2 {
-		background-position: 62% center;
-	}
-
-	.customer-panel {
-		width: min(84vw, 560px);
-		min-height: 140px;
-	}
-
-	.customer-panel::before,
-	.customer-panel::after {
-		width: min(92vw, 620px);
-		height: 20px;
-	}
+.rule-area {
+  font-size: 1rem;
+  font-weight: lighter;
+  text-align: left;
+  justify-self: center;
+  padding-left: 1.2em;
+  /* 1. 將整個段落的內容往右推 */
+  text-indent: -1.2em;
+  /* 2. 將第一行往左拉回，剛好容納 '• ' 的寬度 */
+  margin-top: 0;
+  margin-bottom: 8px;
+  /* 設定項目之間的間距 */
+  line-height: 1.6;
+  /* 設定行高，讓閱讀更舒適 */
 }
+
+.rule-underline {
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(255, 255, 255, 0.92);
+}/*# sourceMappingURL=page-2.css.map */

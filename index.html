@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/page-1.css" />
     <link rel="stylesheet" href="css/page-2.css" />
     <link rel="stylesheet" href="css/page-3.css" />
+    <link rel="stylesheet" href="css/page-3-modal.css" />
     <link rel="stylesheet" href="css/page-4.css" />
     <link rel="stylesheet" href="css/page-5.css" />
     <link rel="stylesheet" href="css/page-6.css" />
@@ -22,13 +23,14 @@
     <div class="viewport">
       <div class="track" id="track">
         <section class="page" id="page-0" data-page="0">
-          <div class="home-hero__content">
-            <div>
-              <h1 class="home-hero__title">白飯俱樂部</h1>
-              <p class="home-hero__lead"><span>RICE CLUB</span></p>
+          <div class="home-content">
+            <div class="home-title">
+              <h1>白飯俱樂部</h1>
+              <p><span>RICE CLUB</span></p>
             </div>
+
             <p
-              class="home-hero__entry"
+              class="home-entry"
               data-nav-target="1"
               role="button"
               tabindex="0"
@@ -38,91 +40,245 @@
           </div>
         </section>
         <section class="page" id="page-1" data-page="1">
-          <div class="home-hero__content">
-            <div>
-              <h1 class="home-hero__title">白飯俱樂部</h1>
-              <p class="home-hero__lead"><span>RICE CLUB</span></p>
+          <div class="about-content">
+            <div class="about-title">
+              <div>
+                <h1>白飯俱樂部</h1>
+                <p><span>RICE CLUB</span></p>
+              </div>
             </div>
-            <div class="about-goblet-wrap">
-              <img
-                class="about-goblet"
-                src="assets/images/about-glass.png"
-                alt="關於酒杯"
-              />
-              <div class="about-goblet-overlay" aria-label="歡迎標語">
-                <div class="about-goblet-overlay__intro">
-                  <p class="about-goblet-overlay__left">歡迎來到白飯俱樂部</p>
-                  <p class="about-goblet-overlay__left">
-                    你要的這一口，我們都有。
-                  </p>
+
+            <div class="about-text">
+              <div class="about-text-main">
+                <div class="about-text-left">
+                  <p>歡迎來到白飯俱樂部</p>
+                  <p>你要的這一口，我們都有。</p>
                 </div>
-                <div class="about-goblet-overlay__story">
-                  <p class="about-goblet-overlay__right">
-                    在這裡，你不需要急著融入，
-                  </p>
-                  <p class="about-goblet-overlay__right">
-                    只要坐下來慢慢感受今晚的節奏就好。
-                  </p>
+                <div class="about-text-right">
+                  <p>在這裡，你不需要急著融入，</p>
+                  <p>只要坐下來慢慢感受今晚的節奏就好。</p>
                   <p>&nbsp;</p>
-                  <p class="about-goblet-overlay__right">
-                    燈光、音樂、演唱表演與店員們，
-                  </p>
-                  <p class="about-goblet-overlay__right">
-                    都會陪你一起走進這個夜晚。
-                  </p>
+                  <p>燈光、音樂、演唱表演與店員們，</p>
+                  <p>都會陪你一起走進這個夜晚。</p>
                   <p>&nbsp;</p>
-                  <p class="about-goblet-overlay__right">
-                    讓這個夜晚，多一點值得記住的片刻。
-                  </p>
-                  <p class="about-goblet-overlay__right">
-                    現在，把腳步放慢一點，
-                  </p>
-                  <p class="about-goblet-overlay__right">
-                    剩下的，就交給白飯俱樂部。
-                  </p>
-                  <p
-                    class="about-goblet-overlay__cta"
-                    data-nav-target="2"
-                    role="button"
-                    tabindex="0"
-                    aria-label="閱讀顧客守則"
-                  >
-                    ✦ 閱讀顧客守則→
-                  </p>
+                  <p>讓這個夜晚，多一點值得記住的片刻。</p>
+                  <p>現在，把腳步放慢一點，</p>
+                  <p>剩下的，就交給白飯俱樂部。</p>
                 </div>
               </div>
+              <p
+                class="about-cta"
+                data-nav-target="2"
+                role="button"
+                tabindex="0"
+                aria-label="閱讀顧客守則"
+              >
+                ✦ 閱讀顧客守則→
+              </p>
             </div>
           </div>
         </section>
         <section class="page" id="page-2" data-page="2">
-          <div class="home-hero__content">
-            <div>
-              <h1 class="home-hero__title">白飯俱樂部</h1>
-              <p class="home-hero__lead"><span>RICE CLUB</span></p>
+          <div class="customer-content">
+            <div class="customer-title">
+              <div>
+                <h1>白飯俱樂部</h1>
+                <p><span>RICE CLUB</span></p>
+              </div>
             </div>
-            <div class="customer-panel" aria-hidden="true">
+            <div class="customer-divider customer-divider-top"></div>
+            <div class="customer-panel">
               <p>✦ 顧客守則 ✦</p>
-              <p>&nbsp;</p>
-              <p style="text-align: left">
+              <p style="font-size: 1rem">&nbsp;</p>
+              <p style="font-size: 1rem">
                 為了維護良好遊戲體驗，敬請各位老闆配合以下規範 :
               </p>
-              <p>&nbsp;</p>
-              <p>• 入店後請收起武器及寵物，以維持整體氛圍。</p>
-              <p>• RP標誌為店員專用標誌，如有RP需求，</p>
-              <p>請使用魔晶石鑲嵌標誌進行區分。</p>
-              <p>• 本店不主動提供ERP相關服務。</p>
-              <p>• 與店員互動過程中，如需拍攝留念請先徵得對方同意。</p>
-              <p>• 請勿使用情感動作及無意義話語大量洗頻。</p>
-              <p>• 嚴禁錄影、直播或以任何形式紀錄並對外公開店內活動內容</p>
-              <p>，拍照留念則不在此限</p>
-              <p>• 本店為成人取向俱樂部，會出現較成熟的話題內容，</p>
-              <p>請斟酌自身接受度再入場；亦不建議現實未成年者參與。</p>
-              <p>• 請勿發送好友邀請給店員，店長不在此限。</p>
+              <p style="font-size: 1rem">&nbsp;</p>
+              <div class="rule-area">
+                <p>
+                  • 入店後請收起<span class="rule-underline">武器及寵物</span
+                  >，以維持整體氛圍。
+                </p>
+                <p>
+                  • RP標誌為店員專用標誌，如有RP需求，<br />請使用<span
+                    class="rule-underline"
+                    >魔晶石鑲嵌標誌</span
+                  >進行區分。
+                </p>
+                <p>• 本店不主動提供ERP相關服務。</p>
+                <p>
+                  • 與店員互動過程中，如需拍攝留念<span class="rule-underline"
+                    >請先徵得對方同意</span
+                  >。
+                </p>
+                <p>• 請勿使用情感動作及無意義話語大量洗頻。</p>
+                <p>
+                  •
+                  <span class="rule-underline"
+                    >嚴禁錄影、直播或以任何形式紀錄並對外公開店內活動內容</span
+                  >，<br />拍照留念則不在此限。
+                </p>
+                <p>
+                  • 本店為<span class="rule-underline">成人取向</span
+                  >俱樂部，會出現較成熟的話題內容，<br />請斟酌自身接受度再入場；亦<span
+                    class="rule-underline"
+                    >不建議現實未成年者參與</span
+                  >。
+                </p>
+                <p>• 請勿發送好友邀請給店員，店長不在此限。</p>
+              </div>
             </div>
+            <div class="customer-divider customer-divider-bottom"></div>
           </div>
         </section>
         <section class="page" id="page-3" data-page="3">
-          <div class="page-placeholder">店員介紹</div>
+          <div class="clerk-content">
+            <!-- Featured staff (merged 1st-2nd row, 1st col) -->
+            <div class="clerk-card" data-clerk-id="1" data-clerk-name="店長">
+              <img src="assets\images\baifan.webp" alt="店長" />
+            </div>
+
+            <!-- Row 1, Col 2-6 -->
+            <div class="clerk-card" data-clerk-id="2" data-clerk-name="小姐姐">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=小姐姐"
+                alt="小姐姐"
+              />
+            </div>
+            <div class="clerk-card" data-clerk-id="3" data-clerk-name="甜心">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=甜心"
+                alt="甜心"
+              />
+            </div>
+            <div class="clerk-card" data-clerk-id="4" data-clerk-name="皮皮">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=皮皮"
+                alt="皮皮"
+              />
+            </div>
+            <div class="clerk-card" data-clerk-id="5" data-clerk-name="寶寶">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=寶寶"
+                alt="寶寶"
+              />
+            </div>
+            <div
+              class="clerk-card clerk-card-coming-soon"
+              aria-label="Coming Soon"
+            >
+              <span class="clerk-card-coming-soon-text">Coming Soon</span>
+            </div>
+
+            <!-- Rows 2, Col 2-6  -->
+            <div class="clerk-card" data-clerk-id="7" data-clerk-name="瑗珠">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=瑗珠"
+                alt="瑗珠"
+              />
+            </div>
+            <div class="clerk-card" data-clerk-id="8" data-clerk-name="晨晨">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=晨晨"
+                alt="晨晨"
+              />
+            </div>
+            <div class="clerk-card" data-clerk-id="9" data-clerk-name="美美">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=美美"
+                alt="美美"
+              />
+            </div>
+            <div
+              class="clerk-card clerk-card-coming-soon"
+              aria-label="Coming Soon"
+            >
+              <span class="clerk-card-coming-soon-text">Coming Soon</span>
+            </div>
+            <div
+              class="clerk-card clerk-card-coming-soon"
+              aria-label="Coming Soon"
+            >
+              <span class="clerk-card-coming-soon-text">Coming Soon</span>
+            </div>
+            <!-- Rows 3, Col 1-6  -->
+            <div class="clerk-card" data-clerk-id="12" data-clerk-name="水靈">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=水靈"
+                alt="水靈"
+              />
+            </div>
+            <div class="clerk-card" data-clerk-id="13" data-clerk-name="琅琅">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=琅琅"
+                alt="琅琅"
+              />
+            </div>
+            <div class="clerk-card" data-clerk-id="14" data-clerk-name="綺綺">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=綺綺"
+                alt="綺綺"
+              />
+            </div>
+            <div class="clerk-card" data-clerk-id="15" data-clerk-name="喵喵">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=喵喵"
+                alt="喵喵"
+              />
+            </div>
+            <div
+              class="clerk-card clerk-card-coming-soon"
+              aria-label="Coming Soon"
+            >
+              <span class="clerk-card-coming-soon-text">Coming Soon</span>
+            </div>
+            <div
+              class="clerk-card clerk-card-coming-soon"
+              aria-label="Coming Soon"
+            >
+              <span class="clerk-card-coming-soon-text">Coming Soon</span>
+            </div>
+            <!-- Row 4, Col 1-6  -->
+            <div class="clerk-card" data-clerk-id="18" data-clerk-name="星星">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=星星"
+                alt="星星"
+              />
+            </div>
+            <div class="clerk-card" data-clerk-id="19" data-clerk-name="月月">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=月月"
+                alt="月月"
+              />
+            </div>
+            <div class="clerk-card" data-clerk-id="20" data-clerk-name="晴晴">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=晴晴"
+                alt="晴晴"
+              />
+            </div>
+            <div class="clerk-card" data-clerk-id="21" data-clerk-name="雨雨">
+              <img
+                src="https://placehold.co/600*400/8066BB/ffffff?text=雨雨"
+                alt="雨雨"
+              />
+            </div>
+            <div
+              class="clerk-card clerk-card-coming-soon"
+              aria-label="Coming Soon"
+            >
+              <span class="clerk-card-coming-soon-text">Coming Soon</span>
+            </div>
+            <p
+              class="clerk-cta"
+              data-nav-target="4"
+              role="button"
+              tabindex="0"
+              aria-label="觀看服務內容"
+            >
+              ✦ 觀看服務內容→
+            </p>
+          </div>
         </section>
         <section class="page" id="page-4" data-page="4">
           <div class="page-placeholder">服務內容</div>
@@ -247,6 +403,21 @@
         <span class="nav-label">店內環境</span>
       </button>
     </nav>
+
+    <!-- Clerk Modal for enlarged view -->
+    <div class="clerk-modal" id="clerkModal" aria-hidden="true">
+      <div class="clerk-modal-overlay" onclick="closeClerkModal()"></div>
+      <div class="clerk-modal-content">
+        <button class="clerk-modal-close" onclick="closeClerkModal()">X</button>
+        <div class="clerk-modal-body">
+          <img id="clerkModalImage" src="" alt="" />
+          <div class="clerk-modal-info">
+            <h2 id="clerkModalName"></h2>
+            <p id="clerkModalDesc"></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="js/nav.js"></script>
   </body>

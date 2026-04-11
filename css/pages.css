@@ -1,18 +1,19 @@
+@charset "UTF-8";
 /* ─── Viewport ─────────────────────────────────── */
 .viewport {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;         /* fallback */
-  height: 100dvh;        /* 行動裝置動態視窗高度 */
+  height: 100vh; /* fallback */
+  height: 100dvh; /* 行動裝置動態視窗高度 */
   overflow: hidden;
 }
 
 /* ─── Track（9 頁並排）─────────────────────────── */
 .track {
   display: flex;
-  width: calc(var(--page-count) * 100vw);  /* 900vw */
+  width: calc(var(--page-count) * 100vw); /* 900vw */
   height: 100%;
   transform: translateX(0);
   transition: var(--transition-page);
@@ -31,12 +32,29 @@
 }
 
 /* ─── 開發佔位色（正式切版時移除）──────────────── */
-.page:nth-child(4) { background: #0a0a1a; }
-.page:nth-child(5) { background: #1a0a0a; }
-.page:nth-child(6) { background: #0a1a0a; }
-.page:nth-child(7) { background: #120a1a; }
-.page:nth-child(8) { background: #1a120a; }
-.page:nth-child(9) { background: #0a121a; }
+.page:nth-child(4) {
+  background: #0a0a1a;
+}
+
+.page:nth-child(5) {
+  background: #1a0a0a;
+}
+
+.page:nth-child(6) {
+  background: #0a1a0a;
+}
+
+.page:nth-child(7) {
+  background: #120a1a;
+}
+
+.page:nth-child(8) {
+  background: #1a120a;
+}
+
+.page:nth-child(9) {
+  background: #0a121a;
+}
 
 /* ─── 佔位文字（開發測試用）────────────────────── */
 .page-placeholder {
@@ -49,4 +67,4 @@
   text-align: center;
   pointer-events: none;
   white-space: nowrap;
-}
+}/*# sourceMappingURL=pages.css.map */

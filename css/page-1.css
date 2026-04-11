@@ -1,117 +1,151 @@
+@charset "UTF-8";
 #page-1 {
-  background:
-    url('../assets/images/about.png') center center / cover no-repeat;
+  background: url("../assets/images/about.png") center center/cover no-repeat;
 }
 
-.about-goblet-wrap {
-  position: relative;
-  width: 100vw;
-  max-width: none;
-  margin: auto calc(50% - 50vw);
-  border-radius: 0.75rem;
-  overflow: hidden;
-}
-
-.about-goblet {
+.about-content {
   width: 100%;
-  max-height: 50vh;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  opacity: 0.7;
-  filter: brightness(0.5) contrast(1.25) saturate(0.7);
-}
-
-.about-goblet-overlay {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: center;
-  font-size: clamp(1.25rem, 2.4vw, 2rem);
-  letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow:
-    0 0.2rem 0.8rem rgba(0, 0, 0, 0.8),
-    0 0 1.25rem rgba(255, 182, 193, 0.28);
-  padding: 0 clamp(1rem, 5vw, 3rem);
-  gap: 1rem;
-}
-
-.about-goblet-overlay__intro {
-  justify-self: end;
-  align-self: center;
-  max-width: 26rem;
-  text-align: right;
-  font-family: 'BaifanFangsong', 'BaifanCustom', serif;
-}
-
-.about-goblet-overlay__story {
-  position: relative;
-  justify-self: center;
-  align-self: stretch;
-  max-width: none;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: 'BaifanFangsong', 'BaifanCustom', serif;
-  padding-bottom: 2.4rem;
+  align-items: center;
 }
 
-.about-goblet-overlay__left,
-.about-goblet-overlay__right {
+.about-title {
+  padding-top: 1.5rem;
+  /* 內容物置中 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about-title h1 {
+  text-align: center;
+  font-size: var(--font-hero);
+  letter-spacing: 0.5em;
+  text-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.6078431373);
+}
+.about-title p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  font-size: var(--font-lead-fluid);
+  letter-spacing: 0.32em;
+  color: rgba(255, 255, 255, 0.6078431373);
+  margin-top: var(--space-sm);
+}
+.about-title p::before,
+.about-title p::after {
+  content: "";
+  width: var(--lead-line-width);
+  height: var(--border-thin);
+  background: currentColor;
+  opacity: 0.75;
+}
+
+.about-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.about-text .about-text-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.about-text .about-text-left {
+  grid-column: 1;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.125rem;
+  padding-right: 3rem;
   font-size: 1.25rem;
-  margin: 0;
-  white-space: nowrap;
-  font-family: 'BaifanFangsong', 'BaifanCustom', serif;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.8), 0 0 1.25rem rgba(255, 182, 193, 0.28);
+  font-family: "BaifanFangsong", "BaifanCustom", serif;
 }
-
-.about-goblet-overlay__left {
+.about-text .about-text-left p {
+  max-width: 100%;
   text-align: left;
 }
-
-.about-goblet-overlay__right {
+.about-text .about-text-right {
+  grid-column: 2;
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.125rem;
+  padding-left: 3rem;
+  font-size: 1.25rem;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.8), 0 0 1.25rem rgba(255, 182, 193, 0.28);
+  font-family: "BaifanFangsong", "BaifanCustom", serif;
+}
+.about-text .about-text-right p {
+  max-width: 100%;
   text-align: left;
 }
-
-.about-goblet-overlay__cta {
+.about-text::before {
+  content: "";
   position: absolute;
-  right: -0.05rem;
-  bottom: -0.05rem;
+  inset: 0;
+  background: url("../assets/images/about-glass.png") center center/cover no-repeat;
+  filter: brightness(0.5) contrast(1.25) saturate(0.7);
+  z-index: 0;
+}
+.about-text > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about-cta {
+  font-family: "BaifanFangsong", "BaifanCustom", serif;
+  align-self: flex-end;
   margin: 0;
   font-size: 1.5rem;
-  letter-spacing: 0.08em;
-  color: #e3a9f1c8;
-  margin-top: auto;
-  text-shadow:
-    0 0 0.25rem rgba(255, 154, 226, 0.95),
-    0 0 0.8rem rgba(255, 95, 214, 0.75),
-    0 0 1.6rem rgba(186, 121, 255, 0.55);
+  letter-spacing: 0.125rem;
+  color: rgba(227, 169, 241, 0.7843137255);
+  text-shadow: 0 0 0.25rem rgba(255, 154, 226, 0.95), 0 0 0.8rem rgba(255, 95, 214, 0.75), 0 0 1.6rem rgba(186, 121, 255, 0.55);
   animation: entry-neon-glow 2.4s ease-in-out infinite alternate;
   will-change: text-shadow, opacity;
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 0.22em;
   text-decoration-thickness: 0.08em;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
+  margin-bottom: 1.125rem;
+  margin-right: 2.5rem;
 }
 
 @media (hover: hover) {
   .about-goblet-overlay__cta:hover {
     color: #ffffff;
-    text-shadow:
-      0 0.2rem 0.7rem rgba(0, 0, 0, 0.85),
-      0 0 1.35rem rgba(255, 220, 170, 0.35);
+    text-shadow: 0 0.2rem 0.7rem rgba(0, 0, 0, 0.85), 0 0 1.35rem rgba(255, 220, 170, 0.35);
   }
 }
-
 @media (max-width: var(--bp-mobile-max)) {
   .about-goblet-wrap {
     width: 100vw;
     margin: auto calc(50% - 50vw);
   }
-
   .about-goblet-overlay {
     inset: 0;
     grid-template-columns: 1fr;
@@ -120,29 +154,25 @@
     gap: 0.2rem;
     text-align: center;
   }
-
   .about-goblet-overlay__intro {
     justify-self: center;
     max-width: min(100%, 34rem);
     text-align: center;
   }
-
   .about-goblet-overlay__story {
     justify-self: center;
     max-width: min(100%, 34rem);
     text-align: center;
     padding-bottom: 0;
   }
-
   .about-goblet-overlay__left,
   .about-goblet-overlay__right {
     white-space: normal;
     text-align: center;
   }
-
   .about-goblet-overlay__cta {
     position: static;
     margin-top: 0.8rem;
     text-align: center;
   }
-}
+}/*# sourceMappingURL=page-1.css.map */
