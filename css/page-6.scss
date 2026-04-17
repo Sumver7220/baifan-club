@@ -58,6 +58,12 @@
 }
 
 .moment-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    padding: 0.45rem 0.9rem;
     position: absolute;
     right: clamp(1rem, 2vw, 3rem);
     bottom: clamp(0.75rem, 2vh, 1.5rem);

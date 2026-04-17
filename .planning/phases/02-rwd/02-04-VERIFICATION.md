@@ -12,6 +12,19 @@
 | dvh fallback contract | PASS | `100vh` + `100dvh` found in base/pages layout shell |
 | Image ratio constraints | PASS | `aspect-ratio` present on major image surfaces |
 
+## Playwright Automated Validation
+
+- Tool: Playwright (Chromium headless)
+- Report JSON: `.planning/phases/02-rwd/02-04-PLAYWRIGHT-REPORT.json`
+- Report Markdown: `.planning/phases/02-rwd/02-04-PLAYWRIGHT-REPORT.md`
+- Screenshots: `.planning/phases/02-rwd/playwright-shots/`
+
+Summary:
+- Total checks: 81
+- Passed: 81
+- Failed: 0
+- Touch target checks now pass after CTA/mobile touch-size adjustments and filtering to interactable elements.
+
 ## Manual Breakpoint Verification (Required)
 
 | Breakpoint | Pages Tested | Status | Notes |
