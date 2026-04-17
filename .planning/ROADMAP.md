@@ -10,7 +10,7 @@
 ## Phases
 
 - [x] **Phase 1: Vite 建置基礎** — 引入 Vite build tool 和 SCSS 模組系統，消除硬編碼頁數，遷移 Modal handler
-- [x] **Phase 2: RWD 系統性重構** — 全面應用 `clamp()` 流體字型、修正 `100dvh`、加入 `aspect-ratio` 圖片縮放
+- [ ] **Phase 2: RWD 系統性重構** — 全面應用 clamp() 流體字型、修正 100dvh、加入 spect-ratio 圖片縮放
 
 ---
 
@@ -57,7 +57,13 @@ Plans:
 4. 觸控目標檢查完成，所有互動按鈕 ≥ 44×48px
 5. 完整 RWD 驗收：在 320px 手機、1920px 電腦、2560px 4K 螢幕實測，無垂直捲動、版面舒適
 
-**Plans:** TBD
+**Plans:** 4 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — 字體系統化：所有硬編碼字體改為 `clamp()` 流體值（RWD-01）
+- [ ] 02-02-PLAN.md — 高度現代化：100dvh + fallback，iOS Safari 位移修正（RWD-02）
+- [ ] 02-03-PLAN.md — 圖片比例防護：aspect-ratio + object-fit: cover（RWD-03）
+- [ ] 02-04-PLAN.md — 完整 RWD 驗收：320px、1920px、2560px 斷點測試（所有需求）
 
 **UI hint:** yes
 
@@ -68,7 +74,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Vite 建置基礎 | 3/3 | Complete | 2026-04-18 |
-| 2. RWD 系統性重構 | 0/2 | Not started | — |
+| 2. RWD 系統性重構 | 0/4 | Planning Complete | — |
 
 ---
 
@@ -82,4 +88,4 @@ Plans:
 
 ---
 
-*Roadmap generated: 2026-04-18*
+*Roadmap updated: 2026-04-18*
