@@ -1,9 +1,9 @@
 ---
 phase: 02-rwd
 status: executing
-last_activity: 2026-04-18T03:36:00+08:00
-current_position: Phase 2 execution in progress (touch-target fixes done; 02-03 image-ratio rework pending)
-current_focus: Complete Plan 02-03 scoped image-ratio strategy, then close 02-04 final visual verification
+last_activity: 2026-04-18T03:45:00+08:00
+current_position: Phase 2 execution in progress (02-03 image-ratio strategy completed; 02-04 final visual verification pending)
+current_focus: Complete Plan 02-04 manual viewport verification and close Phase 2
 completed_plans:
   - 02-01-PLAN.md (Typography)
   - 02-02-PLAN.md (Height/dvh)
@@ -17,7 +17,7 @@ decisions:
   - Phase 1 successfully completed; Phase 2 is ready for parallel Wave 1 execution
   - Typography uses centralized clamp() variables to support 320px-2560px scaling
   - Height declarations modernized with 100dvh + 100vh fallback for iOS Safari
-  - Images constrained with aspect-ratio + object-fit: cover for proportion consistency
+  - Images constrained with scoped aspect-ratio rules; menu keeps object-fit: contain to avoid content cropping
   - Final verification checklist covers all success criteria at three key breakpoints
 issues: []
 ---
@@ -26,15 +26,15 @@ issues: []
 
 - **Phase:** 02-rwd
 - **Status:** executing
-- **Current Position:** Phase 2 execution in progress (touch-target fixes done; 02-03 image-ratio rework pending)
-- **Next Focus:** Complete Plan 02-03 scoped image-ratio strategy, then close 02-04 final visual verification
+- **Current Position:** Phase 2 execution in progress (02-03 image-ratio strategy completed; 02-04 final visual verification pending)
+- **Next Focus:** Complete Plan 02-04 manual viewport verification and close Phase 2
 
 ## Phase 2 RWD Plan Structure
 
 ### Wave 1 (Parallel Execution)
 - Plan 02-01: Typography — Replace all hardcoded font-size with clamp()
 - Plan 02-02: Height/dvh — Audit and update height declarations for iOS Safari
-- Plan 02-03: Images — Add aspect-ratio + object-fit: cover to all images
+- Plan 02-03: Images — Add scoped aspect-ratio constraints with safe fit strategy by content type
 
 ### Wave 2 (Sequential)
 - Plan 02-04: Verification — Complete RWD verification at 320px, 1920px, 2560px
@@ -56,4 +56,4 @@ issues: []
 
 ## Issues
 
-Plan 02-03 requires scoped rework, then run final manual visual verification to close Phase 2.
+Run final manual visual verification (320px / 1920px / 2560px) to close Plan 02-04 and Phase 2.

@@ -10,7 +10,7 @@
 | Build (`npm run build`) | PASS | Vite build completed without errors |
 | Typography tokenization (page SCSS) | PASS | Font sizes use `var(--font-*)` or `clamp(...)` patterns |
 | dvh fallback contract | PASS | `100vh` + `100dvh` found in base/pages layout shell |
-| Image ratio constraints | PARTIAL | Low-risk rework applied to cover-image surfaces; menu/hero final pass pending |
+| Image ratio constraints | PASS | Cover-image surfaces constrained with `aspect-ratio`; menu uses `contain + aspect-ratio` to preserve full menu legibility |
 
 ## Playwright Automated Validation
 
@@ -35,7 +35,7 @@ Summary:
 
 - RWD-01: PARTIAL (automated checks passed; manual visual confirmation pending)
 - RWD-02: PARTIAL (CSS contract passed; iOS/Safari behavior pending manual confirmation)
-- RWD-03: PARTIAL (cover-image surfaces updated with safe aspect-ratio; final menu/hero strategy pending)
+- RWD-03: PASS (hero keeps background `cover`; clerk/service/moment/environment/menu images are proportion-constrained)
 
 ## Remaining Human Verify Checklist
 

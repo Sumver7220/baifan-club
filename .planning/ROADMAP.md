@@ -53,7 +53,7 @@ Plans:
 **Success Criteria** (what must be TRUE):
 1. 所有字體大小改用 `clamp(min, fluid, max)` 並在 320px、1920px、2560px 斷點驗證無視覺斷點
 2. 全高度值從 `100vh` 改用 `100dvh` + `100vh` fallback，iOS Safari address bar 位移已修正
-3. 主要圖片（hero、clerk 卡片、menu）加入 `aspect-ratio` 與 `object-fit: cover`，各斷點無比例變形
+3. 主要圖片（hero、clerk 卡片、menu）加入 `aspect-ratio`，並依內容採用 `object-fit: cover/contain`，各斷點無比例變形
 4. 觸控目標檢查完成，所有互動按鈕 ≥ 44×48px
 5. 完整 RWD 驗收：在 320px 手機、1920px 電腦、2560px 4K 螢幕實測，無垂直捲動、版面舒適
 
@@ -62,7 +62,7 @@ Plans:
 Plans:
 - [x] 02-01-PLAN.md — 字體系統化：所有硬編碼字體改為 `clamp()` 流體值（RWD-01）
 - [x] 02-02-PLAN.md — 高度現代化：100dvh + fallback，iOS Safari 位移修正（RWD-02）
-- [ ] 02-03-PLAN.md — 圖片比例防護：aspect-ratio + object-fit: cover（RWD-03，重做進行中）
+- [x] 02-03-PLAN.md — 圖片比例防護：cover 圖片比例約束 + menu 安全 contain 策略（RWD-03）
 - [ ] 02-04-PLAN.md — 完整 RWD 驗收：320px、1920px、2560px 斷點測試（所有需求）
 
 **UI hint:** yes
@@ -74,7 +74,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Vite 建置基礎 | 3/3 | Complete | 2026-04-18 |
-| 2. RWD 系統性重構 | 2/4 | Executing (RWD-03 rework + final verification pending) | — |
+| 2. RWD 系統性重構 | 3/4 | Executing (final verification pending) | — |
 
 ---
 

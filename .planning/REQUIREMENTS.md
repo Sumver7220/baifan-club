@@ -17,7 +17,7 @@
 
 - [ ] **RWD-01**: 所有字體大小從固定 `px` 改為 `clamp(min, fluid, max)`，覆蓋 320px–2560px（4K）流暢縮放，無斷點跳躍
 - [ ] **RWD-02**: 全高度值從 `100vh` 改用 `100dvh` + `100vh` fallback，修正 iOS Safari address bar 導致的版面位移
-- [ ] **RWD-03**: 主要圖片（hero、clerk 卡片、menu）加入 `aspect-ratio` + `object-fit: cover`，防止各斷點比例變形
+- [ ] **RWD-03**: 主要圖片（hero、clerk 卡片、menu）加入 `aspect-ratio`，並依內容採用 `object-fit: cover/contain`，防止各斷點比例變形
 
 ## v2 Requirements (deferred)
 
