@@ -51,7 +51,7 @@
 .customer-panel {
   opacity: 0.8;
   font-family: "BaifanFangsong", "BaifanCustom", serif;
-  font-size: 1.5rem;
+  font-size: var(--font-lg-fluid);
   justify-items: center;
   padding: 1rem;
   width: min(50vw, 640px);
@@ -100,7 +100,7 @@
   top: 50%;
   transform: translateY(-50%);
   margin: 0;
-  font-size: 1.5rem;
+  font-size: var(--font-lg-fluid);
   letter-spacing: 0.125rem;
   color: rgba(227, 169, 241, 0.7843137255);
   text-shadow: 0 0 0.25rem rgba(255, 154, 226, 0.95), 0 0 0.8rem rgba(255, 95, 214, 0.75), 0 0 1.6rem rgba(186, 121, 255, 0.55);
@@ -113,7 +113,7 @@
 }
 
 .rule-area {
-  font-size: 1rem;
+  font-size: var(--font-md-fluid);
   font-weight: lighter;
   text-align: left;
   justify-self: center;

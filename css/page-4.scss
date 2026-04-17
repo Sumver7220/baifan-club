@@ -207,7 +207,7 @@
     right: clamp(1rem, 2vw, 3rem);
     bottom: clamp(0.75rem, 2vh, 1.5rem);
     margin: 0;
-    font-size: 1.5rem;
+    font-size: var(--font-lg-fluid);
     letter-spacing: 0.125rem;
     color: #e3a9f1c8;
     text-shadow:

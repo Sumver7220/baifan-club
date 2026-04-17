@@ -69,7 +69,7 @@
   border: none;
   background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
-  font-size: 1.8rem;
+  font-size: var(--font-modal-heading-fluid);
   cursor: pointer;
   border-radius: 50%;
   display: flex;
@@ -101,13 +101,13 @@
   color: #ffffff;
 }
 .clerk-modal-info h2 {
-  font-size: 2rem;
+  font-size: var(--font-modal-heading-fluid);
   margin-bottom: 1rem;
   color: #c9a84c;
   letter-spacing: 0.1em;
 }
 .clerk-modal-info p {
-  font-size: 1rem;
+  font-size: var(--font-modal-body-fluid);
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 1rem;
@@ -123,6 +123,6 @@
     gap: 1.5rem;
   }
   .clerk-modal-info h2 {
-    font-size: 1.5rem;
+    font-size: var(--font-modal-body-fluid);
   }
 }/*# sourceMappingURL=page-3-modal.css.map */
