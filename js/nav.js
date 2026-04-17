@@ -4,12 +4,17 @@
   const track = document.getElementById("track");
   const navItems = document.querySelectorAll(".nav-item");
   const pageJumpButtons = document.querySelectorAll("[data-nav-target]");
+  const pages = document.querySelectorAll(".page");
+  const totalPages = pages.length;
   let currentPage = 0;
 
+  document.documentElement.style.setProperty("--page-count", totalPages);
+
   function goToPage(index) {
-    track.style.transform = "translateX(-" + index * 100 + "vw)";
+    const nextPage = Math.max(0, Math.min(totalPages - 1, index));
+    track.style.transform = "translateX(-" + nextPage * 100 + "vw)";
     navItems.forEach(function (item) {
-      const isActive = Number.parseInt(item.dataset.target, 10) === index;
+      const isActive = Number.parseInt(item.dataset.target, 10) === nextPage;
       item.classList.toggle("active", isActive);
       if (isActive) {
         item.setAttribute("aria-current", "page");
@@ -17,7 +22,7 @@
         item.removeAttribute("aria-current");
       }
     });
-    currentPage = index;
+    currentPage = nextPage;
   }
 
   navItems.forEach(function (item) {
@@ -79,7 +84,7 @@
       const baseOffset = currentPage * window.innerWidth;
       let newOffset = baseOffset - deltaX;
       const minOffset = 0;
-      const maxOffset = 8 * window.innerWidth;
+      const maxOffset = Math.max(0, totalPages - 1) * window.innerWidth;
       newOffset = Math.max(minOffset, Math.min(maxOffset, newOffset));
 
       track.style.transform = "translateX(-" + newOffset + "px)";
@@ -96,7 +101,7 @@
 
       const deltaX = e.changedTouches[0].clientX - touchStartX;
 
-      if (deltaX < -50 && currentPage < 8) {
+      if (deltaX < -50 && currentPage < totalPages - 1) {
         goToPage(currentPage + 1);
       } else if (deltaX > 50 && currentPage > 0) {
         goToPage(currentPage - 1);
@@ -114,15 +119,7 @@
 })();
 
 // ─── Clerk Modal Management ───────────────────────────────────
-globalThis.openClerkModal = function (clerkId) {
-  const clerkCard = document.querySelector(`[data-clerk-id="${clerkId}"]`);
-  if (!clerkCard) return;
-
-  const clerkName = clerkCard.dataset.clerkName || "店員";
-  const clerkImage = clerkCard.querySelector("img");
-  const clerkImageSrc = clerkImage ? clerkImage.src : "";
-
-  // 店員介紹內容（可以根據 clerkId 擴展）
+(function () {
   const introData = {
     1: "我是這間店的店長，歡迎來到白飯俱樂部。最喜歡和各位老闆一起度過愉快的夜晚。",
     2: "Hi！我是小姐姐，擅長烹飪各式餐點，希望能為你帶來美味的體驗～",
@@ -133,37 +130,60 @@ globalThis.openClerkModal = function (clerkId) {
     default: "歡迎認識我！我在白飯俱樂部為你服務。",
   };
 
-  const intro = introData[clerkId] || introData.default;
-
   const modal = document.getElementById("clerkModal");
-  if (modal) {
-    document.getElementById("clerkModalName").textContent = clerkName;
-    document.getElementById("clerkModalDesc").textContent = intro;
-    document.getElementById("clerkModalImage").src = clerkImageSrc;
-    document.getElementById("clerkModalImage").alt = clerkName;
+  const modalName = document.getElementById("clerkModalName");
+  const modalDesc = document.getElementById("clerkModalDesc");
+  const modalImage = document.getElementById("clerkModalImage");
+
+  if (!modal || !modalName || !modalDesc || !modalImage) {
+    return;
+  }
+
+  function openClerkModal(clerkCard) {
+    const clerkId = clerkCard.dataset.clerkId;
+    const clerkName = clerkCard.dataset.clerkName || "店員";
+    const clerkImage = clerkCard.querySelector("img");
+    const clerkImageSrc = clerkImage ? clerkImage.src : "";
+    const intro = introData[clerkId] || introData.default;
+
+    modalName.textContent = clerkName;
+    modalDesc.textContent = intro;
+    modalImage.src = clerkImageSrc;
+    modalImage.alt = clerkName;
     modal.setAttribute("aria-hidden", "false");
     modal.classList.add("open");
   }
-};
 
-globalThis.closeClerkModal = function () {
-  const modal = document.getElementById("clerkModal");
-  if (modal) {
+  function closeClerkModal() {
     modal.setAttribute("aria-hidden", "true");
     modal.classList.remove("open");
   }
-};
 
-// ─── Attach Clerk Card Click Handlers ───────────────────────
-(function () {
-  const clerkCards = document.querySelectorAll(
-    ".clerk-card:not(.clerk-card-coming-soon)",
-  );
-  clerkCards.forEach(function (card) {
-    card.addEventListener("click", function () {
-      const clerkId = this.dataset.clerkId;
-      globalThis.openClerkModal(clerkId);
-    });
+  document.addEventListener("click", function (event) {
+    const clerkCard = event.target.closest(".clerk-card[data-clerk-id]");
+    if (clerkCard) {
+      openClerkModal(clerkCard);
+      return;
+    }
+
+    if (event.target.closest(".clerk-modal-overlay, .clerk-modal-close")) {
+      closeClerkModal();
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && modal.classList.contains("open")) {
+      closeClerkModal();
+      return;
+    }
+
+    if (event.key !== "Enter" && event.key !== " ") return;
+
+    const clerkCard = event.target.closest(".clerk-card[data-clerk-id]");
+    if (!clerkCard) return;
+
+    event.preventDefault();
+    openClerkModal(clerkCard);
   });
 })();
 
