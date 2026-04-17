@@ -69,8 +69,10 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
     border: none;
     background: rgba(255, 255, 255, 0.1);
     color: #ffffff;

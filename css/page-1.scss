@@ -134,6 +134,12 @@
 }
 
 .about-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  padding: 0.45rem 0.9rem;
   font-family: 'BaifanFangsong', 'BaifanCustom', serif;
   align-self: flex-end;
   margin: 0;

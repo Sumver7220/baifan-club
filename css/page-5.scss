@@ -183,8 +183,10 @@
     top: 0.4rem;
     right: 1rem;
     z-index: 2;
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
     border-radius: 50%;
     color: #fff;
     background: rgba(0, 0, 0, 0.36);
@@ -309,6 +311,12 @@
 }
 
 .menu-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    padding: 0.45rem 0.9rem;
     font-family: 'BaifanFangsong', 'BaifanCustom', serif;
     position: absolute;
     right: clamp(1rem, 2vw, 2.5rem);
