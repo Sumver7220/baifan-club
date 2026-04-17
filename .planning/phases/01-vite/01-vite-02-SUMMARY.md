@@ -80,6 +80,10 @@ None - plan executed exactly as written.
 - The site now boots through Vite and a single SCSS pipeline.
 - Phase 3 can safely refactor navigation and modal behavior on top of the new module entry.
 
+## Self-Check: PASSED
+- Found `.planning/phases/01-vite/01-vite-02-SUMMARY.md`, `.planning/STATE.md`, `.planning/ROADMAP.md`, and `.planning/REQUIREMENTS.md` on disk.
+- Found commit `6b7a596` and the final docs commit `088c643` in git history.
+
 ---
 *Phase: 01-vite*
 *Completed: 2026-04-18*
