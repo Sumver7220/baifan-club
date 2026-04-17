@@ -1,9 +1,9 @@
 ---
 phase: 02-rwd
 status: executing
-last_activity: 2026-04-18T03:25:00+08:00
-current_position: Phase 2 plan execution in progress (01-03 completed, 04 awaiting human verification)
-current_focus: Complete Plan 02-04 manual viewport verification (320/1920/2560) and finalize phase
+last_activity: 2026-04-18T03:40:00+08:00
+current_position: Phase 2 execution in progress (layout regression fixed by reverting broad aspect-ratio changes)
+current_focus: Redesign Plan 02-03 with scoped image-ratio strategy, then continue 02-04 verification
 completed_plans:
   - 02-01-PLAN.md (Typography)
   - 02-02-PLAN.md (Height/dvh)
@@ -26,8 +26,8 @@ issues: []
 
 - **Phase:** 02-rwd
 - **Status:** executing
-- **Current Position:** Phase 2 plan execution in progress (01-03 completed, 04 awaiting human verification)
-- **Next Focus:** Complete Plan 02-04 manual viewport verification (320/1920/2560) and finalize phase
+- **Current Position:** Phase 2 execution in progress (layout regression fixed by reverting broad aspect-ratio changes)
+- **Next Focus:** Redesign Plan 02-03 with scoped image-ratio strategy, then continue 02-04 verification
 
 ## Phase 2 RWD Plan Structure
 
@@ -56,4 +56,4 @@ issues: []
 
 ## Issues
 
-Manual verification checkpoint pending for Plan 02-04.
+Manual verification checkpoint pending, and Plan 02-03 requires scoped rework.

@@ -24,7 +24,7 @@
 
 - RWD-01: PARTIAL (automated checks passed; manual visual confirmation pending)
 - RWD-02: PARTIAL (CSS contract passed; iOS/Safari behavior pending manual confirmation)
-- RWD-03: PARTIAL (CSS ratio constraints added; manual image distortion check pending)
+- RWD-03: OPEN (initial ratio constraints reverted due to layout regression; safer scoped implementation required)
 
 ## Remaining Human Verify Checklist
 
