@@ -1,6 +1,6 @@
 # Architecture
 
-**Analysis Date:** 2026-04-17
+**Analysis Date:** 2026-04-18
 
 ## Pattern Overview
 
@@ -11,6 +11,7 @@
 - The entire experience is assembled in `index.html` and split into 9 full-screen sections inside a horizontal `.track`.
 - Page changes are driven by vanilla JavaScript in `js/nav.js` through `transform: translateX(...)` on the track.
 - Page styling is organized as a shared base plus per-page section styles in `css/*.scss` and compiled `css/*.css` outputs.
+- **Implementation Status:** pages 0–6 and 8 are fully implemented; page 7 ("斗內香檳王") remains a placeholder awaiting content development.
 
 ## Layers
 
@@ -18,7 +19,7 @@
 
 - Purpose: Defines the page sequence, bottom navigation, and clerk modal.
 - Location: `index.html`
-- Contains: 9 `.page` sections, `.bottom-nav`, `.clerk-modal`, script and stylesheet links.
+- Contains: 9 `.page` sections (pages 0–8), `.bottom-nav`, `.clerk-modal`, script and stylesheet links.
 - Depends on: `css/base.css`, `css/pages.css`, `css/nav.css`, `css/page-*.css`, `js/nav.js`.
 - Used by: The browser as the only HTML entry point.
 
@@ -32,9 +33,9 @@
 
 **Layout Layer:**
 
-- Purpose: Defines the viewport/track/page sliding shell.
+- Purpose: Defines the viewport/track/page sliding shell and placeholder styling for incomplete pages.
 - Location: `css/pages.scss` and compiled `css/pages.css`
-- Contains: `.viewport`, `.track`, `.page`, placeholder styling.
+- Contains: `.viewport`, `.track`, `.page`, `.page-placeholder`, layout constraints.
 - Depends on: `--page-count`, `--transition-page`, `--nav-height` from `base.scss`.
 - Used by: Every section in `index.html`.
 
@@ -50,7 +51,10 @@
 
 - Purpose: Holds page-specific backgrounds, layouts, and section content.
 - Location: `css/page-0.scss` through `css/page-8.scss`, plus `css/page-3-modal.scss`
-- Contains: Section-specific selectors such as `#page-0`, `#page-1`, `#page-2`, `#page-3`, `#page-4`.
+- Contains: Section-specific selectors such as `#page-0`, `#page-1`, `#page-2`, `#page-3`, `#page-4`, `#page-5`, `#page-6`, `#page-8`.
+- Implementation Status:
+  - **Fully Implemented:** pages 0, 1, 2, 3, 4, 5, 6, 8 with custom layouts and styling.
+  - **Placeholder:** page 7 is reserved but contains only a `.page-placeholder` div pending content design.
 - Depends on: Shared tokens and layout rules from `css/base.scss` and `css/pages.scss`.
 - Used by: Matching sections in `index.html`.
 
@@ -72,7 +76,7 @@
 
 **In-Page Jump Flow:**
 
-1. CTA elements such as `.home-entry`, `.about-cta`, `.customer-cta`, and `.clerk-cta` expose `data-nav-target`.
+1. CTA elements such as `.home-entry`, `.about-cta`, `.customer-cta`, `.clerk-cta`, and `.moment-cta` expose `data-nav-target`.
 2. `js/nav.js` binds click and keyboard handlers to those elements.
 3. The handler routes to `goToPage(...)` using the declared target index.
 
@@ -93,6 +97,7 @@
 - Navigation state is held in the `currentPage` variable in `js/nav.js`.
 - Visual selection state is mirrored in DOM classes and `aria-current="page"`.
 - Modal visibility is represented by `.clerk-modal.open` plus `aria-hidden`.
+- Placeholder pages (e.g., page 7) are navigable but display minimal content until full styling and layout are implemented.
 
 ## Key Abstractions
 
@@ -111,7 +116,7 @@
 **Section CTA:**
 
 - Purpose: Provides direct links between sections without using the bottom nav.
-- Examples: `.home-entry`, `.about-cta`, `.customer-cta`, `.clerk-cta`
+- Examples: `.home-entry`, `.about-cta`, `.customer-cta`, `.clerk-cta`, `.moment-cta`
 - Pattern: Button-like paragraph elements with `role="button"`, `tabindex="0"`, and `data-nav-target`.
 
 **Clerk Card and Modal:**
@@ -119,6 +124,18 @@
 - Purpose: Surfaces staff profiles in a grid and expands them in an overlay.
 - Examples: `.clerk-card` and `#clerkModal` in `index.html`, `css/page-3.scss`, `css/page-3-modal.scss`, `js/nav.js`
 - Pattern: Card click opens a global modal helper with content populated from the clicked card.
+
+**Moment Gallery:**
+
+- Purpose: Displays a 2x2+ masonry-style photo grid on page 6.
+- Examples: `.moment-grid`, `.moment-card` in `css/page-6.scss`
+- Pattern: CSS Grid with responsive sizing via clamp and background images.
+
+**Environment Gallery:**
+
+- Purpose: Displays a 3x2 environment photo grid on page 8 with optional captions.
+- Examples: `.environment-grid`, `.environment-card`, `.environment-caption` in `css/page-8.scss`
+- Pattern: CSS Grid with captioned overlays and media query breakpoints for mobile.
 
 ## Entry Points
 
@@ -143,6 +160,7 @@
 - `goToPage` assumes the track and nav items exist; the page shell is considered mandatory.
 - `openClerkModal` returns early when no matching clerk card exists.
 - `closeClerkModal` returns silently when the modal is absent.
+- Placeholder pages gracefully display minimal content until their styles are finalized.
 
 ## Cross-Cutting Concerns
 
@@ -150,8 +168,8 @@
 **Validation:** Attribute-driven DOM lookup with null guards in `js/nav.js`.
 **Authentication:** Not applicable.
 **Accessibility:** Buttons use `aria-label`, active navigation updates `aria-current="page"`, and in-page CTAs are keyboard-activatable.
-**Responsive Behavior:** `css/base.scss` and `css/nav.scss` define the mobile breakpoint, and `js/nav.js` adds swipe support for touch devices.
+**Responsive Behavior:** `css/base.scss` and `css/nav.scss` define the mobile breakpoint, and `js/nav.js` adds swipe support for touch devices. Page-specific breakpoints (e.g., page 8''s 47.9375rem media query) provide fine-grained mobile layout adjustments.
 
 ---
 
-_Architecture analysis: 2026-04-17_
+_Architecture analysis: 2026-04-18_

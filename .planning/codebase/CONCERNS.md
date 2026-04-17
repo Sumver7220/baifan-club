@@ -1,6 +1,6 @@
 # Codebase Concerns
 
-**Analysis Date:** 2026-04-17
+**Analysis Date:** 2026-04-18
 
 ## Tech Debt
 
@@ -41,12 +41,12 @@
 - Safe modification: Replace placeholders with local assets or add explicit fallback handling.
 - Test coverage: No image fallback or offline behavior checks detected.
 
-**Several sections remain placeholders or empty containers:**
+**One section still ships as placeholder content:**
 
-- Files: `index.html#L281`, `index.html#L288`, `index.html#L292`, `css/page-4.scss#L1`, `css/pages.scss#L42`
-- Why fragile: The service page content is empty and later pages still use placeholder text, which increases the chance of shipping unfinished UI states.
-- Safe modification: Either remove unfinished sections from the navigation or gate them behind explicit staging flags.
-- Test coverage: No content-completeness checks detected.
+- Files: `index.html` (page 7), `css/page-7.scss`
+- Why fragile: page 6 and page 8 have moved to production-like implementations, but page 7 remains a placeholder block, creating a noticeable UX discontinuity in the navigation flow.
+- Safe modification: Implement page 7 layout and content, or temporarily hide page 7 entry from bottom navigation until complete.
+- Test coverage: No page-completeness assertions detected.
 
 ## Test Coverage Gaps
 
@@ -75,4 +75,4 @@
 
 ---
 
-_Concerns audit: 2026-04-17_
+_Concerns audit: 2026-04-18_

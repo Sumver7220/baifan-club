@@ -1,6 +1,6 @@
 # Codebase Structure
 
-**Analysis Date:** 2026-04-17
+**Analysis Date:** 2026-04-18
 
 ## Directory Layout
 
@@ -22,7 +22,10 @@ baifan-club/
 
 - Purpose: Contains all shared and page-specific styling for the site.
 - Contains: `base.scss`, `pages.scss`, `nav.scss`, `page-0.scss` through `page-8.scss`, `page-3-modal.scss`, compiled `.css` files, and source maps.
-- Key files: `css/base.scss`, `css/pages.scss`, `css/nav.scss`, `css/page-0.scss`, `css/page-3-modal.scss`, `css/page-4.scss`.
+- Key files: `css/base.scss`, `css/pages.scss`, `css/nav.scss`, `css/page-6.scss`, `css/page-7.scss`, `css/page-8.scss`, `css/page-3-modal.scss`.
+- **Implementation Status:**
+  - Fully styled: `page-0.scss` through `page-6.scss`, `page-8.scss`
+  - Placeholder: `page-7.scss` contains only the section header comment
 
 **`js/`:**
 
@@ -34,7 +37,7 @@ baifan-club/
 
 - Purpose: Stores local runtime assets.
 - Contains: `images/` and `fonts/`.
-- Key files: `assets/images/homepage.png`, `assets/images/about.png`, `assets/images/customer.png`, `assets/images/about-glass.png`, `assets/images/customer-line-divider.png`, `assets/images/baifan.webp`, `assets/fonts/cwTeXQMing-Medium.ttf`, `assets/fonts/cwTeXQFangsong-Medium.ttf`.
+- Key files: `assets/images/homepage.png`, `assets/images/about.png`, `assets/images/customer.png`, `assets/images/about-glass.png`, `assets/images/customer-line-divider.png`, `assets/images/baifan.webp`, `assets/images/moment_01.png` through `assets/images/moment_04.png`, `assets/images/enviroment_01_一樓大廳.png` through `assets/images/enviroment_06_二樓包廂.png`, `assets/fonts/cwTeXQMing-Medium.ttf`, `assets/fonts/cwTeXQFangsong-Medium.ttf`.
 
 **`docs/`:**
 
@@ -46,7 +49,7 @@ baifan-club/
 
 - Purpose: Reference images for the visible page concepts and content sections.
 - Contains: Section mock images used as visual references.
-- Key files: `整體畫面圖/✦ 白飯俱樂部｜Rice Club ✦ 入口.png`, `整體畫面圖/顧客守則.png`, `整體畫面圖/關於.png`, `整體畫面圖/菜單.png`, `整體畫面圖/精彩瞬間.png`.
+- Key files: `整體畫面圖/✦ 白飯俱樂部｜Rice Club ✦ 入口.png`, `整體畫面圖/顧客守則.png`, `整體畫面圖/關於.png`, `整體畫面圖/菜單.png`, `整體畫面圖/精彩瞬間.png`, `整體畫面圖/店內環境.png`.
 
 **`.vscode/`:**
 
@@ -58,13 +61,13 @@ baifan-club/
 
 - Purpose: Generated planning and mapping artifacts.
 - Contains: Codebase maps such as this document set.
-- Key files: `.planning/codebase/ARCHITECTURE.md`, `.planning/codebase/STRUCTURE.md`.
+- Key files: `.planning/codebase/ARCHITECTURE.md`, `.planning/codebase/STRUCTURE.md`, `.planning/codebase/STACK.md`, `.planning/codebase/INTEGRATIONS.md`, `.planning/codebase/CONVENTIONS.md`, `.planning/codebase/CONCERNS.md`, `.planning/codebase/TESTING.md`.
 
 ## Key File Locations
 
 **Entry Points:**
 
-- `index.html`: Main document that loads every stylesheet, defines every section, and includes `js/nav.js`.
+- `index.html`: Main document that loads every stylesheet, defines all 9 sections (0–8), and includes `js/nav.js`.
 - `js/nav.js`: Navigation, touch gesture, and clerk modal behavior.
 
 **Configuration:**
@@ -76,6 +79,11 @@ baifan-club/
 - `js/nav.js`: Page switching, swipe handling, modal open/close helpers.
 - `css/pages.scss`: Viewport, track, and page shell.
 - `css/nav.scss`: Bottom navigation presentation and active state.
+
+**Page Styling (Implementation Status):**
+
+- **Fully Implemented:** `css/page-0.scss`, `css/page-1.scss`, `css/page-2.scss`, `css/page-3.scss`, `css/page-4.scss`, `css/page-5.scss`, `css/page-6.scss`, `css/page-8.scss` with custom layouts, backgrounds, and grids.
+- **Placeholder:** `css/page-7.scss` is reserved but contains only a section header comment.
 
 **Testing/Preview:**
 
@@ -99,8 +107,15 @@ baifan-club/
 
 **New Page:**
 
-- Primary code: add a new `<section class="page">` in `index.html` and a matching stylesheet such as `css/page-9.scss`.
+- Primary code: add a new `<section class="page">` in `index.html` and a matching stylesheet such as `css/page-{n}.scss`.
 - Tests/verification: add the matching nav item in `index.html` and verify the track count still matches `--page-count` in `css/base.scss`.
+
+**Implement Page 7 (斗內香檳王):**
+
+- HTML: Extend `index.html` page 7 section beyond the placeholder `<div class="page-placeholder">`.
+- Styling: Replace `css/page-7.scss` comment-only stub with actual layout rules (background, grid, cards, typography).
+- Assets: Add or reference images for champagne promotion content in `assets/images/`.
+- Interaction: If interactive elements are needed, extend `js/nav.js` with page-7-specific handlers.
 
 **New Page Interaction:**
 
@@ -137,7 +152,7 @@ baifan-club/
 **`css/`:**
 
 - Purpose: Holds both source SCSS and compiled CSS side by side.
-- Generated: The `.css` and `.css.map` files are compile outputs.
+- Generated: The `.css` and `.css.map` files are compile outputs from Live Sass Compiler.
 - Committed: Yes.
 
 **`.planning/`:**
@@ -148,4 +163,4 @@ baifan-club/
 
 ---
 
-_Structure analysis: 2026-04-17_
+_Structure analysis: 2026-04-18_
