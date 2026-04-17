@@ -61,6 +61,18 @@
   --font-entry-fluid: clamp(1.725rem, 1.8vw, 1.16rem);
   --font-lead-fluid: clamp(0.9rem, 1.6vw, 1.1rem);
   --font-placeholder-fluid: clamp(1.2rem, 4vw, 2rem);
+  /* Large section headings: 1.5rem@320 -> 3.5rem@2560 */
+  --font-hero-fluid: clamp(1.5rem, 3vw, 3.5rem);
+  /* Large body/section text: 1rem@320 -> 1.5rem@2560 */
+  --font-lg-fluid: clamp(1rem, 1.3vw, 1.5rem);
+  /* Medium body text: 0.875rem@320 -> 1.1rem@2560 */
+  --font-md-fluid: clamp(0.875rem, 1.1vw, 1.1rem);
+  /* Modal headings: 1.2rem@320 -> 2.2rem@2560 */
+  --font-modal-heading-fluid: clamp(1.2rem, 1.8vw, 2.2rem);
+  /* Modal body text: 0.9rem@320 -> 1.25rem@2560 */
+  --font-modal-body-fluid: clamp(0.9rem, 1.2vw, 1.25rem);
+  /* Navigation and small labels: 0.75rem@320 -> 1rem@2560 */
+  --font-nav-fluid: clamp(0.75rem, 0.95vw, 1rem);
   --lead-line-width: clamp(4rem, 12vw, 10rem);
   --nav-icon-size: 1.5rem;
   --nav-icon-size-mobile: 1rem;
