@@ -18,6 +18,7 @@
 .clerk-card {
     position: relative;
     cursor: pointer;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     border-radius: 3px;
     background: linear-gradient(180deg, #88888841, #00000041);
@@ -36,6 +37,7 @@
     img {
         width: 100%;
         height: 100%;
+        aspect-ratio: 1 / 1;
         object-fit: cover;
     }
 }
