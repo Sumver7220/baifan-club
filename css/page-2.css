@@ -79,8 +79,37 @@
 }
 
 .customer-divider-bottom {
+  align-content: center;
   margin-top: 0.125rem;
   margin-bottom: 1rem;
+}
+
+.customer-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.customer-cta {
+  font-family: "BaifanFangsong", "BaifanCustom", serif;
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.125rem;
+  color: rgba(227, 169, 241, 0.7843137255);
+  text-shadow: 0 0 0.25rem rgba(255, 154, 226, 0.95), 0 0 0.8rem rgba(255, 95, 214, 0.75), 0 0 1.6rem rgba(186, 121, 255, 0.55);
+  animation: entry-neon-glow 2.4s ease-in-out infinite alternate;
+  will-change: text-shadow, opacity;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 0.08em;
 }
 
 .rule-area {

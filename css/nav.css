@@ -6,8 +6,8 @@
   left: 0;
   width: 100%;
   height: var(--nav-height);
-  backdrop-filter: blur(var(--blur-md));
-  -webkit-backdrop-filter: blur(var(--blur-md));
+  backdrop-filter: blur(0.15rem);
+  -webkit-backdrop-filter: blur(0.15rem);
   display: flex;
   align-items: stretch;
   z-index: 100;
@@ -33,8 +33,8 @@
   padding: var(--space-xs) var(--space-2xs);
   position: relative;
   transition: opacity var(--duration-fast) ease, background var(--duration-fast) ease, border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
-  backdrop-filter: blur(var(--blur-sm)) saturate(115%);
-  -webkit-backdrop-filter: blur(var(--blur-sm)) saturate(115%);
+  backdrop-filter: blur(0.15rem) saturate(115%);
+  -webkit-backdrop-filter: blur(0.15rem) saturate(115%);
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -57,7 +57,8 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: var(--radius-sm); /* 漸層邊框的粗細 */
+  padding: var(--radius-sm);
+  /* 漸層邊框的粗細 */
   /* 3. 調整邊框左側顏色創造對比，這裡將左側改為較不透明的黑 (#00000099) 作為示範 */
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.6470588235), rgba(255, 255, 255, 0.6470588235));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

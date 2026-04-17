@@ -166,3 +166,103 @@ globalThis.closeClerkModal = function () {
     });
   });
 })();
+
+// ─── Menu Modal Management ──────────────────────────────────
+(function () {
+  const menuItems = Array.from(
+    document.querySelectorAll(
+      ".menu-main-poster[data-menu-index], .menu-card[data-menu-index]",
+    ),
+  ).sort(function (a, b) {
+    return (
+      Number.parseInt(a.dataset.menuIndex, 10) -
+      Number.parseInt(b.dataset.menuIndex, 10)
+    );
+  });
+  const menuModal = document.getElementById("menuModal");
+  const menuModalStage = document.querySelector(".menu-modal-stage");
+  const menuModalImage = document.getElementById("menuModalImage");
+  const menuModalCounter = document.getElementById("menuModalCounter");
+  let currentMenuIndex = 0;
+
+  if (
+    !menuItems.length ||
+    !menuModal ||
+    !menuModalStage ||
+    !menuModalImage ||
+    !menuModalCounter
+  ) {
+    return;
+  }
+
+  function renderMenuImage(index) {
+    const normalized = (index + menuItems.length) % menuItems.length;
+    const item = menuItems[normalized];
+    const img = item.querySelector("img");
+    if (!img) return;
+
+    currentMenuIndex = normalized;
+    menuModalImage.src = img.src;
+    menuModalImage.alt = img.alt || "菜單圖片";
+    menuModalCounter.textContent =
+      String(normalized + 1) + " / " + String(menuItems.length);
+    menuModalImage.classList.remove("is-zoomed");
+    menuModalStage.scrollTop = 0;
+    menuModalStage.scrollLeft = 0;
+  }
+
+  globalThis.openMenuModal = function (index) {
+    renderMenuImage(index);
+    menuModal.setAttribute("aria-hidden", "false");
+    menuModal.classList.add("open");
+  };
+
+  globalThis.closeMenuModal = function () {
+    menuModal.setAttribute("aria-hidden", "true");
+    menuModal.classList.remove("open");
+  };
+
+  globalThis.showPrevMenuImage = function () {
+    renderMenuImage(currentMenuIndex - 1);
+  };
+
+  globalThis.showNextMenuImage = function () {
+    renderMenuImage(currentMenuIndex + 1);
+  };
+
+  menuItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      const index = Number.parseInt(this.dataset.menuIndex, 10);
+      globalThis.openMenuModal(index);
+    });
+  });
+
+  menuModalImage.addEventListener("click", function () {
+    if (!menuModal.classList.contains("open")) return;
+    menuModalImage.classList.toggle("is-zoomed");
+  });
+
+  menuModalStage.addEventListener("click", function (e) {
+    if (e.target === menuModalStage) {
+      globalThis.closeMenuModal();
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (!menuModal.classList.contains("open")) return;
+
+    if (e.key === "Escape") {
+      globalThis.closeMenuModal();
+      return;
+    }
+
+    if (e.key === "ArrowLeft") {
+      globalThis.showPrevMenuImage();
+      return;
+    }
+
+    if (e.key === "ArrowRight") {
+      globalThis.showNextMenuImage();
+    }
+  });
+})();

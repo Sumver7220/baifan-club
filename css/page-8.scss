@@ -1,1 +1,75 @@
 /* ─── 頁面 8：店內環境 ─────────────────────────── */
+
+#page-8 {
+    background:
+        url('../assets/images/背景.png') center center / cover no-repeat;
+}
+
+.environment-main {
+    width: 100%;
+    height: 100%;
+    padding: clamp(1rem, 2.2vh, 1.8rem) clamp(1rem, 2.2vw, 2.2rem)
+}
+
+.environment-grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.32rem, 0.7vw, 0.58rem);
+}
+
+.environment-card {
+    margin: 0;
+    min-width: 0;
+    min-height: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.125rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+}
+
+.environment-caption {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    font-family: 'BaifanFangsong', 'PMingLiU', 'MingLiU', 'Noto Serif TC', serif;
+    font-size: clamp(1rem, 1.2vw, 1.35rem);
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: 0 0.25rem 0.8rem rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+}
+
+.environment-caption-bottom {
+    bottom: clamp(0.45rem, 1.2vh, 0.8rem);
+}
+
+.environment-caption-top {
+    top: clamp(0.45rem, 1.2vh, 0.8rem);
+}
+
+@media (max-width: 47.9375rem) {
+    .environment-main {
+        padding: 0.8rem 0.75rem calc(var(--nav-height) + 1rem);
+    }
+
+    .environment-grid {
+        gap: 0.5rem;
+    }
+
+    .environment-caption {
+        font-size: 0.88rem;
+        letter-spacing: 0.08em;
+    }
+}

@@ -1,1 +1,373 @@
 /* ─── 頁面 5：菜單 ─────────────────────────────── */
+
+#page-5 {
+    background:
+        url('../assets/images/menu_background.webp') center center / cover no-repeat;
+}
+
+.menu-main {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding: 1rem 8rem;
+}
+
+.menu-main-left,
+.menu-main-right {
+    min-width: 0;
+    min-height: 0;
+}
+
+.menu-main-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    height: 100%;
+}
+
+.menu-main-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.5rem 0 0.25rem;
+    text-align: center;
+
+    h1 {
+        font-family: 'BaifanFangsong', 'BaifanCustom', serif;
+        font-size: clamp(2.4rem, 4.6vw, 4.8rem);
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.55);
+    }
+
+    p {
+        font-family: 'BaifanCustom', 'Noto Serif TC', serif;
+        font-size: clamp(0.75rem, 1vw, 0.95rem);
+        letter-spacing: 0.32em;
+        color: rgba(255, 255, 255, 0.62);
+    }
+}
+
+.menu-main-poster {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 0.3rem;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 42%),
+        rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.32);
+    cursor: zoom-in;
+
+    img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center top;
+    }
+}
+
+.menu-main-right {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-md);
+    height: 100%;
+    min-height: 0;
+    align-content: stretch;
+    justify-content: stretch;
+}
+
+.menu-card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    min-width: 0;
+    min-height: 0;
+    cursor: zoom-in;
+
+    img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center top;
+    }
+}
+
+/* ─── Menu Modal Overlay & Enlargement ─────────────────────── */
+
+.menu-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    background: rgba(5, 5, 12, 0);
+    backdrop-filter: blur(0);
+    transition:
+        opacity 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        background-color 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        backdrop-filter 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        visibility 0ms linear 420ms;
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        background: rgba(5, 5, 12, 0.28);
+        backdrop-filter: blur(0.5rem);
+        transition:
+            opacity 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            background-color 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            backdrop-filter 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            visibility 0ms linear 0ms;
+    }
+}
+
+.menu-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.menu-modal {
+    &.open .menu-modal-overlay {
+        background: transparent;
+    }
+}
+
+.menu-modal-content {
+    position: relative;
+    z-index: 1101;
+    width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    padding: 0.6rem 0 0.4rem;
+    background: transparent;
+    opacity: 0;
+    transform: scale(0.95) translateY(12px);
+    transition:
+        opacity 320ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-modal.open .menu-modal-content {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.menu-modal-close {
+    position: absolute;
+    top: 0.4rem;
+    right: 1rem;
+    z-index: 2;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.36);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+}
+
+.menu-modal-stage {
+    position: relative;
+    width: 100%;
+    height: calc(100dvh - 3rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 1rem;
+    overflow: auto;
+
+    img {
+        display: block;
+        width: auto;
+        height: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        cursor: zoom-in;
+        transition: height 180ms ease, max-height 180ms ease;
+    }
+}
+
+#menuModalImage.is-zoomed {
+    height: auto;
+    max-height: 180%;
+    max-width: none;
+    cursor: zoom-out;
+}
+
+.menu-modal-zone {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 35%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.menu-modal-zone-prev {
+    left: 0;
+    cursor: w-resize;
+}
+
+.menu-modal-zone-next {
+    right: 0;
+    cursor: e-resize;
+}
+
+.menu-modal-counter {
+    margin-top: 0.1rem;
+    text-align: center;
+    font-family: 'BaifanFangsong', 'BaifanCustom', serif;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.menu-card-wide {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.menu-card:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.menu-card:nth-of-type(3) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.menu-card:nth-of-type(4) {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.menu-card:nth-of-type(5) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.menu-card-ambient {
+    grid-column: 3;
+    grid-row: 2;
+
+    img {
+        object-position: center center;
+        filter: saturate(0.92) contrast(0.95) brightness(0.88);
+    }
+}
+
+.menu-card-overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 0.9rem 1rem 1rem;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.84));
+    color: rgba(255, 255, 255, 0.92);
+
+    span {
+        display: block;
+        font-family: 'BaifanFangsong', 'BaifanCustom', serif;
+        font-size: clamp(0.95rem, 1.2vw, 1.25rem);
+        letter-spacing: 0.18em;
+        text-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.48);
+    }
+
+    p {
+        margin-top: 0.35rem;
+        font-family: 'BaifanCustom', 'Noto Serif TC', serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.76);
+    }
+}
+
+.menu-cta {
+    font-family: 'BaifanFangsong', 'BaifanCustom', serif;
+    position: absolute;
+    right: clamp(1rem, 2vw, 2.5rem);
+    bottom: clamp(0.75rem, 2vh, 1.5rem);
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 0.125rem;
+    color: #e3a9f1c8;
+    text-shadow:
+        0 0 0.25rem rgba(255, 154, 226, 0.95),
+        0 0 0.8rem rgba(255, 95, 214, 0.75),
+        0 0 1.6rem rgba(186, 121, 255, 0.55);
+    animation: entry-neon-glow 2.4s ease-in-out infinite alternate;
+    will-change: text-shadow, opacity;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 0.08em;
+    z-index: 2;
+}
+
+@media (max-width: 64rem) {
+    .menu-main {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-main-right {
+        min-height: 35rem;
+    }
+}
+
+@media (max-width: 47.9375rem) {
+    .menu-main {
+        padding: 1rem;
+    }
+
+    .menu-main-right {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(3, minmax(10rem, 1fr));
+        min-height: 42rem;
+    }
+
+    .menu-card-wide,
+    .menu-card:nth-of-type(2),
+    .menu-card:nth-of-type(3),
+    .menu-card:nth-of-type(4),
+    .menu-card:nth-of-type(5),
+    .menu-card-ambient {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .menu-card-wide {
+        grid-column: 1 / -1;
+    }
+
+    .menu-cta {
+        right: 1rem;
+        bottom: 1rem;
+        font-size: 1.1rem;
+    }
+}
