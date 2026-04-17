@@ -13,7 +13,7 @@ created: 2026-04-18
 | [02-01-PLAN.md](02-01-PLAN.md) | 字體系統化（RWD-01） | RWD-01 | Completed |
 | [02-02-PLAN.md](02-02-PLAN.md) | 高度值現代化（RWD-02） | RWD-02 | Completed |
 | [02-03-PLAN.md](02-03-PLAN.md) | 圖片比例防護（RWD-03） | RWD-03 | Rework Needed |
-| [02-04-PLAN.md](02-04-PLAN.md) | 完整 RWD 驗收 | RWD-01, RWD-02, RWD-03 | In Progress |
+| [02-04-PLAN.md](02-04-PLAN.md) | 完整 RWD 驗收 | RWD-01, RWD-02, RWD-03 | Partially Verified |
 
 ## 執行波次
 
@@ -25,7 +25,7 @@ created: 2026-04-18
 1. ✓ 字體系統化：所有硬編碼 px/rem 改為 `clamp()` 流體值
 2. ✓ 高度現代化：全 `100dvh` + `100vh` fallback，iOS Safari 穩定
 3. ⚠ 圖片防護：第一版 `aspect-ratio` 造成版型跑位，已先回退並待重做
-4. ◆ 完整驗收：320px、1920px、2560px 三斷點人工檢核待完成
+4. ◆ 驗收進度：導頁、無垂直捲動、觸控目標自動檢核已通過，最終人工視覺驗收待完成
 
 ---
 

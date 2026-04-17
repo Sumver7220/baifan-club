@@ -10,14 +10,12 @@
 | Build (`npm run build`) | PASS | Vite build completed without errors |
 | Typography tokenization (page SCSS) | PASS | Font sizes use `var(--font-*)` or `clamp(...)` patterns |
 | dvh fallback contract | PASS | `100vh` + `100dvh` found in base/pages layout shell |
-| Image ratio constraints | PASS | `aspect-ratio` present on major image surfaces |
+| Image ratio constraints | OPEN | First rollout was reverted due to layout regression; scoped rework pending |
 
 ## Playwright Automated Validation
 
 - Tool: Playwright (Chromium headless)
-- Report JSON: `.planning/phases/02-rwd/02-04-PLAYWRIGHT-REPORT.json`
-- Report Markdown: `.planning/phases/02-rwd/02-04-PLAYWRIGHT-REPORT.md`
-- Screenshots: `.planning/phases/02-rwd/playwright-shots/`
+- Artifacts: not retained in repository by request (code-only cleanup)
 
 Summary:
 - Total checks: 81

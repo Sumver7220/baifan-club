@@ -62,7 +62,7 @@ Plans:
 Plans:
 - [x] 02-01-PLAN.md — 字體系統化：所有硬編碼字體改為 `clamp()` 流體值（RWD-01）
 - [x] 02-02-PLAN.md — 高度現代化：100dvh + fallback，iOS Safari 位移修正（RWD-02）
-- [x] 02-03-PLAN.md — 圖片比例防護：aspect-ratio + object-fit: cover（RWD-03）
+- [ ] 02-03-PLAN.md — 圖片比例防護：aspect-ratio + object-fit: cover（RWD-03，需重做）
 - [ ] 02-04-PLAN.md — 完整 RWD 驗收：320px、1920px、2560px 斷點測試（所有需求）
 
 **UI hint:** yes
@@ -74,7 +74,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Vite 建置基礎 | 3/3 | Complete | 2026-04-18 |
-| 2. RWD 系統性重構 | 3/4 | Executing (awaiting manual verification) | — |
+| 2. RWD 系統性重構 | 2/4 | Executing (RWD-03 rework + final verification pending) | — |
 
 ---
 
