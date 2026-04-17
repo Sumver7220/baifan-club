@@ -8,10 +8,10 @@
 
 ### Build & Refactor
 
-- [ ] **BUILD-01**: 引入 Vite 5.x 取代 VS Code Live Sass，提供 `npm run dev` / `npm run build` 可重現的 build 流程
-- [ ] **BUILD-02**: 全面遷移 SCSS `@import` → `@use`（整批完成，消除模組衝突與重複規則）
-- [ ] **BUILD-03**: 消除硬編碼頁數（`css/pages.scss` L15/L34、`js/nav.js` L97/L100），改為從 DOM 動態推導 `.page` 數量
-- [ ] **BUILD-04**: Clerk Modal handler 從 `globalThis.openClerkModal` / `closeClerkModal` 遷移至 delegated event listeners，移除 inline `onclick`
+- [x] **BUILD-01**: 引入 Vite 5.x 取代 VS Code Live Sass，提供 `npm run dev` / `npm run build` 可重現的 build 流程
+- [x] **BUILD-02**: 全面遷移 SCSS `@import` → `@use`（整批完成，消除模組衝突與重複規則）
+- [x] **BUILD-03**: 消除硬編碼頁數（`css/pages.scss` L15/L34、`js/nav.js` L97/L100），改為從 DOM 動態推導 `.page` 數量
+- [x] **BUILD-04**: Clerk Modal handler 從 `globalThis.openClerkModal` / `closeClerkModal` 遷移至 delegated event listeners，移除 inline `onclick`
 
 ### RWD
 
@@ -41,10 +41,10 @@
 
 | REQ-ID | Phase | Status |
 |--------|-------|--------|
-| BUILD-01 | Phase 1: Vite 建置基礎 | — |
-| BUILD-02 | Phase 1: Vite 建置基礎 | — |
-| BUILD-03 | Phase 1: Vite 建置基礎 | — |
-| BUILD-04 | Phase 1: Vite 建置基礎 | — |
+| BUILD-01 | Phase 1: Vite 建置基礎 | ✓ |
+| BUILD-02 | Phase 1: Vite 建置基礎 | ✓ |
+| BUILD-03 | Phase 1: Vite 建置基礎 | ✓ |
+| BUILD-04 | Phase 1: Vite 建置基礎 | ✓ |
 | RWD-01 | Phase 2: RWD 系統性重構 | — |
 | RWD-02 | Phase 2: RWD 系統性重構 | — |
 | RWD-03 | Phase 2: RWD 系統性重構 | — |

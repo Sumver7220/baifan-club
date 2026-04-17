@@ -31,7 +31,12 @@
 4. 頁數從 DOM `.page` 元素數量動態推導，`css/pages.scss` 與 `js/nav.js` 無硬編碼 `9`
 5. Modal 互動遷移至 delegated event listeners，消除 inline `onclick` 與 `globalThis` 全域 handler
 
-**Plans:** TBD
+**Plans:** 3 plans
+
+Plans:
+- [x] 01-01-PLAN.md - 建立 Vite 與 PostCSS 建構骨架（BUILD-01）
+- [x] 01-02-PLAN.md - SCSS 單一入口與模組載入切換（BUILD-02）
+- [x] 01-03-PLAN.md - 動態頁數與 Clerk Modal delegated listeners（BUILD-03, BUILD-04）
 
 **UI hint:** no
 
@@ -62,7 +67,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Vite 建置基礎 | 0/2 | Not started | — |
+| 1. Vite 建置基礎 | 3/3 | Complete | 2026-04-18 |
 | 2. RWD 系統性重構 | 0/2 | Not started | — |
 
 ---
