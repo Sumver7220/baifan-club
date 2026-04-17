@@ -45,6 +45,6 @@
 | BUILD-02 | Phase 1: Vite 建置基礎 | ✓ |
 | BUILD-03 | Phase 1: Vite 建置基礎 | ✓ |
 | BUILD-04 | Phase 1: Vite 建置基礎 | ✓ |
-| RWD-01 | Phase 2: RWD 系統性重構 | — |
-| RWD-02 | Phase 2: RWD 系統性重構 | — |
-| RWD-03 | Phase 2: RWD 系統性重構 | — |
+| RWD-01 | Phase 2: RWD 系統性重構 | ~ |
+| RWD-02 | Phase 2: RWD 系統性重構 | ~ |
+| RWD-03 | Phase 2: RWD 系統性重構 | ~ |
