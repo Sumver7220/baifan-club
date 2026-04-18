@@ -119,7 +119,18 @@ html {
   font-size: 100%;
 }
 
-@media (max-width: var(--bp-mobile-max)) {
+.home-entry,
+.about-cta,
+.customer-cta,
+.clerk-cta,
+.service-cta,
+.menu-cta {
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+@media (max-width: 47.9375rem) {
   :root {
     --nav-height: 4.5rem;
   }

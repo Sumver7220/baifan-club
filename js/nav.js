@@ -72,7 +72,7 @@
 
       if (
         isHorizontalSwipe === null &&
-        (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5)
+        (Math.abs(deltaX) > 10 || Math.abs(deltaY) > 10)
       ) {
         isHorizontalSwipe = Math.abs(deltaX) > Math.abs(deltaY);
       }
@@ -139,7 +139,10 @@
     return;
   }
 
+  let clerkModalOpener = null;
+
   function openClerkModal(clerkCard) {
+    clerkModalOpener = document.activeElement;
     const clerkId = clerkCard.dataset.clerkId;
     const clerkName = clerkCard.dataset.clerkName || "店員";
     const clerkImage = clerkCard.querySelector("img");
@@ -157,6 +160,10 @@
   function closeClerkModal() {
     modal.setAttribute("aria-hidden", "true");
     modal.classList.remove("open");
+    if (clerkModalOpener) {
+      clerkModalOpener.focus();
+      clerkModalOpener = null;
+    }
   }
 
   document.addEventListener("click", function (event) {
@@ -203,7 +210,12 @@
   const menuModalStage = document.querySelector(".menu-modal-stage");
   const menuModalImage = document.getElementById("menuModalImage");
   const menuModalCounter = document.getElementById("menuModalCounter");
+  const menuModalClose = document.querySelector(".menu-modal-close");
+  const menuModalOverlay = document.querySelector(".menu-modal-overlay");
+  const menuModalPrev = document.querySelector(".menu-modal-zone-prev");
+  const menuModalNext = document.querySelector(".menu-modal-zone-next");
   let currentMenuIndex = 0;
+  let menuModalOpener = null;
 
   if (
     !menuItems.length ||
@@ -231,29 +243,34 @@
     menuModalStage.scrollLeft = 0;
   }
 
-  globalThis.openMenuModal = function (index) {
+  function openMenuModal(index) {
+    menuModalOpener = document.activeElement;
     renderMenuImage(index);
     menuModal.setAttribute("aria-hidden", "false");
     menuModal.classList.add("open");
-  };
+  }
 
-  globalThis.closeMenuModal = function () {
+  function closeMenuModal() {
     menuModal.setAttribute("aria-hidden", "true");
     menuModal.classList.remove("open");
-  };
+    if (menuModalOpener) {
+      menuModalOpener.focus();
+      menuModalOpener = null;
+    }
+  }
 
-  globalThis.showPrevMenuImage = function () {
+  function showPrevMenuImage() {
     renderMenuImage(currentMenuIndex - 1);
-  };
+  }
 
-  globalThis.showNextMenuImage = function () {
+  function showNextMenuImage() {
     renderMenuImage(currentMenuIndex + 1);
-  };
+  }
 
   menuItems.forEach(function (item) {
     item.addEventListener("click", function () {
       const index = Number.parseInt(this.dataset.menuIndex, 10);
-      globalThis.openMenuModal(index);
+      openMenuModal(index);
     });
   });
 
@@ -264,25 +281,41 @@
 
   menuModalStage.addEventListener("click", function (e) {
     if (e.target === menuModalStage) {
-      globalThis.closeMenuModal();
+      closeMenuModal();
     }
   });
+
+  if (menuModalClose) {
+    menuModalClose.addEventListener("click", closeMenuModal);
+  }
+
+  if (menuModalOverlay) {
+    menuModalOverlay.addEventListener("click", closeMenuModal);
+  }
+
+  if (menuModalPrev) {
+    menuModalPrev.addEventListener("click", showPrevMenuImage);
+  }
+
+  if (menuModalNext) {
+    menuModalNext.addEventListener("click", showNextMenuImage);
+  }
 
   document.addEventListener("keydown", function (e) {
     if (!menuModal.classList.contains("open")) return;
 
     if (e.key === "Escape") {
-      globalThis.closeMenuModal();
+      closeMenuModal();
       return;
     }
 
     if (e.key === "ArrowLeft") {
-      globalThis.showPrevMenuImage();
+      showPrevMenuImage();
       return;
     }
 
     if (e.key === "ArrowRight") {
-      globalThis.showNextMenuImage();
+      showNextMenuImage();
     }
   });
 })();
