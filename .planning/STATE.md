@@ -1,45 +1,36 @@
 ---
-phase: 02-rwd
-status: complete
-last_activity: 2026-04-18T16:00:00+08:00
-current_position: Phase 2 complete — 桌機 RWD 全面通過；行動版布局移交新 Phase
-current_focus: 規劃行動版獨立布局 Phase（≤767px 可捲動長頁設計）
-completed_plans:
-  - 02-01-PLAN.md (Typography)
-  - 02-02-PLAN.md (Height/dvh)
-  - 02-03-PLAN.md (Images)
-  - 02-04-PLAN.md (Verification)
-decisions:
-  - Phase 1 successfully completed; Phase 2 is ready for parallel Wave 1 execution
-  - Typography uses centralized clamp() variables to support 320px-2560px scaling
-  - Height declarations modernized with 100dvh + 100vh fallback for iOS Safari
-  - Images constrained with scoped aspect-ratio rules; menu keeps object-fit: contain to avoid content cropping
-  - Phase 2 verification confirmed desktop (≥768px) fully passes all RWD requirements
-  - Mobile layout (≤767px) requires dedicated new phase — systemic architecture gap, not a CSS patch
-issues: []
+phase: milestone-complete
+status: shipped
+last_activity: 2026-04-19T00:00:00+08:00
+current_position: v1.0 milestone shipped — 行動版布局待新 Phase
+current_focus: 規劃 v1.1 行動版獨立布局 Phase（/gsd-new-milestone）
 ---
 
 # State
 
-- **Phase:** 02-rwd
-- **Status:** complete
-- **Current Position:** Phase 2 complete (2026-04-18)
-- **Next Focus:** 新 Phase — 行動版獨立布局（≤767px 可捲動長頁 + 錨點導航）
+- **Milestone:** v1.0 — SHIPPED 2026-04-19
+- **Next Focus:** v1.1 — 行動版獨立布局（Phase 3）
 
-## Phase 2 RWD — 完成摘要
+## Project Reference
 
-### Wave 1 (完成)
-- Plan 02-01: Typography — clamp() 流體字型系統建立
-- Plan 02-02: Height/dvh — 100dvh + 100vh fallback，iOS Safari 修正
-- Plan 02-03: Images — scoped aspect-ratio + object-fit 策略
+See: .planning/PROJECT.md (updated 2026-04-19)
 
-### Wave 2 (完成)
-- Plan 02-04: Verification — 桌機 RWD 驗收通過；行動版架構缺口記錄
+**Core value:** 電腦版無垂直捲動、一切畫面舒適滿版；手機版橫向滑動流暢自然
+**Current focus:** 規劃 v1.1 行動版 Phase（≤767px 可捲動長頁 + 錨點導航）
 
-## 已知缺口（移交）
+## v1.0 Milestone Summary
 
-行動版（≤767px）整體布局需新 Phase 處理：
-- overflow:hidden + 全螢幕 section 合約在手機不適用
-- 需要可捲動長頁設計 + 錨點導航模式
-- clerk-content 6 欄格線在 320px 崩潰為 11px/欄
-- `--font-hero` 未使用 fluid variant（advisory warning）
+- Phase 1: Vite 建置基礎（3 plans）— 2026-04-18
+- Phase 2: RWD 系統性重構（4 plans）— 2026-04-18
+- 桌機 RWD 全面通過；行動版架構缺口移交下一 Phase
+
+## Deferred Items
+
+Items acknowledged and deferred at milestone close on 2026-04-19:
+
+| Category | Item | Status |
+|----------|------|--------|
+| requirement | RWD-01 行動版字型縮放 | desktop-only validated |
+| requirement | RWD-02 行動版 dvh 布局 | desktop-only validated |
+| requirement | RWD-03 行動版圖片比例 | desktop-only validated |
+| tech-debt | --font-hero fluid variant 未啟用 | advisory warning |
