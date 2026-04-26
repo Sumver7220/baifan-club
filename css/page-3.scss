@@ -102,11 +102,13 @@
     width: 100%;
   }
 
-  /* 第一張（一桶白飯）：全寬 feature card */
+  /* 第一張（一桶白飯）：全寬 feature card，保留直式比例 */
   .clerk-card:nth-child(1) {
     grid-column: 1 / -1;
     grid-row: auto;
-    aspect-ratio: 16 / 7;
+    aspect-ratio: 1030 / 1351;
+    max-width: 55%;
+    margin-inline: auto;
   }
 
   /* 其餘卡片回到自動格位 */

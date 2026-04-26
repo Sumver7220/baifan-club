@@ -150,11 +150,11 @@ html {
   }
 
   .viewport {
-    position: static;
-    width: 100%;
-    height: auto;
-    overflow: visible;
-    min-width: unset;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    min-width: unset !important;
   }
 
   .track {

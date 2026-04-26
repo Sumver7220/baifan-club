@@ -437,9 +437,33 @@
     });
   }
 
+  // ── 頁面內嵌 CTA（data-nav-target）行動版攔截 ──────
+  var pageJumpButtonsAll = document.querySelectorAll('[data-nav-target]');
+
+  function handlePageJumpMobile(e) {
+    var target = parseInt(e.currentTarget.dataset.navTarget, 10);
+    var section = document.getElementById('page-' + target);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function bindMobilePageJumps() {
+    pageJumpButtonsAll.forEach(function (btn) {
+      btn.addEventListener('click', handlePageJumpMobile);
+    });
+  }
+
+  function unbindMobilePageJumps() {
+    pageJumpButtonsAll.forEach(function (btn) {
+      btn.removeEventListener('click', handlePageJumpMobile);
+    });
+  }
+
   // ── 行動模式初始化 / 清理 ─────────────────────────
   function enterMobileMode() {
     initObserver();
+    bindMobilePageJumps();
   }
 
   function exitMobileMode() {
@@ -447,6 +471,7 @@
       observer.disconnect();
       observer = null;
     }
+    unbindMobilePageJumps();
     closeMenu();
     // 切換回桌機時重新載入，確保 translateX 狀態正確
     window.location.reload();
