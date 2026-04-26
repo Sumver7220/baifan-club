@@ -230,3 +230,62 @@
     text-decoration-thickness: 0.08em;
     z-index: 2;
 }
+
+/* ─── Page 4 行動版（服務內容）────────────────────── */
+@media (max-width: 1199px) {
+    #page-4 {
+        display: block;
+    }
+
+    .service-main {
+        height: auto;
+        padding: 0 1.25rem 2rem;
+    }
+
+    .service-title {
+        padding-top: 1.5rem;
+        padding-bottom: 0.5rem;
+
+        h1 {
+            font-size: clamp(1.5rem, 6vw, 2.2rem);
+            letter-spacing: 0.4em;
+        }
+    }
+
+    .service-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        column-gap: 0;
+        row-gap: 1rem;
+        height: auto;
+    }
+
+    .service-content-left,
+    .service-content-right {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .service-content-left-content pre {
+        font-size: clamp(0.78rem, 3vw, 0.9rem);
+        white-space: pre-wrap;
+        word-break: break-word;
+        line-height: 2;
+        letter-spacing: 0.04em;
+    }
+
+    .service-gallery-item img,
+    .service-gallery-item-large img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .service-cta {
+        position: static;
+        display: block;
+        text-align: center;
+        margin: 1.5rem 0 0;
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+}
