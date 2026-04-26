@@ -159,3 +159,96 @@
   text-underline-offset: 0.22em;
   text-decoration-thickness: 0.08em;
 }
+
+/* ─── Page 1 行動版（品牌故事）────────────────────── */
+@media (max-width: 1199px) {
+  #page-1 {
+    display: block;
+  }
+
+  .about-content {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-title {
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem 1rem 1.25rem;
+
+    h1 {
+      font-size: clamp(1.5rem, 6vw, 2.2rem);
+      letter-spacing: 0.4em;
+    }
+
+    p {
+      font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+      letter-spacing: 0.25em;
+    }
+
+    p::before,
+    p::after {
+      width: clamp(1.5rem, 5vw, 4rem);
+    }
+  }
+
+  .about-text {
+    flex: unset;
+    width: 100%;
+    margin: 0;
+    padding: 1.5rem 1.25rem 2rem;
+    background: rgba(10, 8, 20, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: var(--border-thin) solid rgba(255, 255, 255, 0.06);
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .about-text-main {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .about-text-left {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: stretch;
+    padding-right: 0;
+    padding-bottom: 1rem;
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    letter-spacing: 0.12em;
+    line-height: 2;
+    border-bottom: var(--border-thin) solid rgba(255, 255, 255, 0.06);
+
+    p { max-width: 100%; }
+  }
+
+  .about-text-right {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: stretch;
+    padding-left: 0;
+    padding-top: 1rem;
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    letter-spacing: 0.12em;
+    line-height: 2;
+
+    p { max-width: 100%; }
+  }
+
+  .about-cta {
+    position: static;
+    margin: 1.5rem 0 0;
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    right: unset;
+    bottom: unset;
+  }
+}
