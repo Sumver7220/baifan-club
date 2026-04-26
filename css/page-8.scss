@@ -59,3 +59,52 @@
 .environment-caption-top {
     top: 0.8rem;
 }
+
+/* ─── Page 8 行動版（店內環境）────────────────────── */
+@media (max-width: 1199px) {
+    #page-8 {
+        display: block;
+    }
+
+    .environment-main {
+        width: 100%;
+        height: auto;
+        padding: 0 0.75rem 2rem;
+    }
+
+    .environment-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 0.5rem;
+        width: 100%;
+        height: auto;
+    }
+
+    .environment-card-row1,
+    .environment-card-row2 {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .environment-card {
+        min-height: unset;
+
+        img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+    }
+
+    .environment-caption {
+        position: static;
+        transform: none;
+        left: unset;
+        text-align: center;
+        padding: 0.25rem 0;
+        font-size: clamp(0.75rem, 2.8vw, 0.9rem);
+        color: rgba(255, 255, 255, 0.55);
+    }
+}
