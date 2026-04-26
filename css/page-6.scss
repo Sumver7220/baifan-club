@@ -88,3 +88,54 @@
     text-decoration-thickness: 0.08em;
     z-index: 2;
 }
+
+/* ─── Page 6 行動版（精彩瞬間）────────────────────── */
+@media (max-width: 1199px) {
+    #page-6 {
+        display: block;
+    }
+
+    .moment-main {
+        width: 100%;
+        height: auto;
+        padding: 0 0.75rem 2rem;
+        position: relative;
+    }
+
+    .moment-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        column-gap: 0.5rem;
+        row-gap: 0.5rem;
+        width: 100%;
+        height: auto;
+    }
+
+    .moment-card-left-top,
+    .moment-card-right-top,
+    .moment-card-left-bottom,
+    .moment-card-right-bottom {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .moment-card {
+        min-height: unset;
+
+        img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+    }
+
+    .moment-cta {
+        position: static;
+        display: block;
+        text-align: center;
+        margin: 1rem 0 0;
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+}
