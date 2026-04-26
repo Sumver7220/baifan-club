@@ -171,6 +171,7 @@ html {
     min-height: 100dvh;
     overflow: visible !important;
     flex-shrink: unset !important;
+    scroll-margin-top: 48px; /* sticky header 高度補償 */
   }
 
   /* 桌機底部導覽列隱藏 */

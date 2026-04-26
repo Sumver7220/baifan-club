@@ -441,6 +441,8 @@
   var pageJumpButtonsAll = document.querySelectorAll('[data-nav-target]');
 
   function handlePageJumpMobile(e) {
+    // capture phase — 阻止桌機 IIFE 的 goToPage() handler 觸發
+    e.stopImmediatePropagation();
     var target = parseInt(e.currentTarget.dataset.navTarget, 10);
     var section = document.getElementById('page-' + target);
     if (section) {
@@ -450,13 +452,13 @@
 
   function bindMobilePageJumps() {
     pageJumpButtonsAll.forEach(function (btn) {
-      btn.addEventListener('click', handlePageJumpMobile);
+      btn.addEventListener('click', handlePageJumpMobile, true); // capture phase
     });
   }
 
   function unbindMobilePageJumps() {
     pageJumpButtonsAll.forEach(function (btn) {
-      btn.removeEventListener('click', handlePageJumpMobile);
+      btn.removeEventListener('click', handlePageJumpMobile, true);
     });
   }
 

@@ -127,6 +127,7 @@
   .home-entry {
     font-size: clamp(1.2rem, 5.5vw, 2rem);
     letter-spacing: 0.4em;
-    margin-bottom: 2.5rem;
+    margin-top: 2.5rem; /* 覆蓋桌機的 margin-top: auto，讓按鈕不跑到最底 */
+    margin-bottom: 0;
   }
 }

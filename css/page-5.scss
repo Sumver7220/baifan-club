@@ -390,15 +390,28 @@
     .menu-main-right {
         order: 2;
         display: flex;
-        flex-direction: column;
+        flex-direction: row; /* 橫向排列 */
+        overflow-x: auto;
         gap: 0.5rem;
+        padding: 0 0.75rem 0.5rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
         min-height: unset;
+
+        /* 讓最後一張卡片右側有 margin，顯示還有更多 */
+        &::after {
+            content: '';
+            flex-shrink: 0;
+            width: 0.25rem;
+        }
     }
 
     .menu-card,
     .menu-card-wide {
-        width: 100%;
+        flex-shrink: 0;
+        width: 72vw; /* 露出右側下一張，提示可左右滑 */
         min-height: unset;
+        scroll-snap-align: start;
 
         img {
             width: 100%;

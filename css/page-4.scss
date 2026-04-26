@@ -258,6 +258,11 @@
         column-gap: 0;
         row-gap: 1rem;
         height: auto;
+
+        /* 隱藏桌機版的垂直分隔線 */
+        &::after {
+            display: none;
+        }
     }
 
     .service-content-left,

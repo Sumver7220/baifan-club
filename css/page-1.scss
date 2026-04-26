@@ -246,6 +246,7 @@
 
   .about-cta {
     position: static;
+    align-self: flex-start; /* 防止 flex stretch 把按鈕拉成全寬 */
     margin: 1.5rem 0 0;
     font-size: clamp(0.9rem, 3.5vw, 1.2rem);
     right: unset;
