@@ -316,10 +316,9 @@
   var overlayClose = document.querySelector('.mobile-menu-close');
   var menuItems = document.querySelectorAll('.mobile-menu-item');
   var dots = document.querySelectorAll('.mobile-dot');
-  var dotNav = document.querySelector('.mobile-dot-nav');
   var sections = document.querySelectorAll('.page');
 
-  if (!mobileHeader || !overlay || !hamburger) return;
+  if (!mobileHeader || !overlay || !hamburger || !overlayClose) return;
 
   var observer = null;
   var currentDotIndex = 0;
