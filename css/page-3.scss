@@ -86,3 +86,45 @@
   text-underline-offset: 0.22em;
   text-decoration-thickness: 0.08em;
 }
+
+/* ─── Page 3 行動版（店員介紹）────────────────────── */
+@media (max-width: 1199px) {
+  #page-3 {
+    display: block;
+    align-items: unset;
+    justify-content: unset;
+  }
+
+  .clerk-content {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 0.75rem 1.5rem;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  /* 第一張（一桶白飯）：全寬 feature card */
+  .clerk-card:nth-child(1) {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    aspect-ratio: 16 / 7;
+  }
+
+  /* 其餘卡片回到自動格位 */
+  .clerk-card:not(:nth-child(1)) {
+    grid-column: auto;
+    grid-row: auto;
+    aspect-ratio: 1030 / 1351;
+  }
+
+  .clerk-card-coming-soon {
+    aspect-ratio: 1030 / 1351;
+  }
+
+  .clerk-cta {
+    position: static;
+    display: block;
+    text-align: center;
+    margin: 1rem auto;
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+  }
+}
