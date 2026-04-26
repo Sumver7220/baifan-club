@@ -409,7 +409,7 @@
     .menu-card,
     .menu-card-wide {
         flex-shrink: 0;
-        width: 72vw; /* 露出右側下一張，提示可左右滑 */
+        width: 42vw; /* 同時露出約 2 張，明確提示可左右滑 */
         min-height: unset;
         scroll-snap-align: start;
 

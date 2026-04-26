@@ -217,6 +217,7 @@
 	.customer-cta {
 		position: static;
 		display: inline-flex;
+		align-self: flex-start; /* 防止 flex 容器把按鈕拉成全寬或奇怪形狀 */
 		margin: 1rem 0 0;
 		font-size: clamp(0.9rem, 3.5vw, 1.2rem);
 	}
