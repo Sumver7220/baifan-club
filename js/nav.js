@@ -303,3 +303,167 @@
     }
   });
 })();
+
+// ─── 行動版導覽 ─────────────────────────────────────
+(function () {
+  'use strict';
+
+  var MOBILE_MQ = window.matchMedia('(max-width: 1199px)');
+
+  var mobileHeader = document.querySelector('.mobile-header');
+  var hamburger = document.querySelector('.mobile-hamburger');
+  var overlay = document.getElementById('mobileMenuOverlay');
+  var overlayClose = document.querySelector('.mobile-menu-close');
+  var menuItems = document.querySelectorAll('.mobile-menu-item');
+  var dots = document.querySelectorAll('.mobile-dot');
+  var dotNav = document.querySelector('.mobile-dot-nav');
+  var sections = document.querySelectorAll('.page');
+
+  if (!mobileHeader || !overlay || !hamburger) return;
+
+  var observer = null;
+  var currentDotIndex = 0;
+
+  // ── Overlay 開關 ─────────────────────────────────
+  function openMenu() {
+    overlay.setAttribute('aria-hidden', 'false');
+    overlay.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', openMenu);
+  overlayClose.addEventListener('click', closeMenu);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
+  // ── 選單項目點擊跳轉 ─────────────────────────────
+  menuItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      if (item.classList.contains('mobile-menu-item--disabled')) return;
+      var target = parseInt(item.dataset.mobileTarget, 10);
+      var section = document.getElementById('page-' + target);
+      closeMenu();
+      if (section) {
+        // 短暫延遲確保 overlay 開始收合後再捲動
+        setTimeout(function () {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      }
+    });
+
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (item.classList.contains('mobile-menu-item--disabled')) {
+          e.preventDefault();
+          return;
+        }
+      }
+    });
+  });
+
+  // ── 圓點點擊跳轉 ─────────────────────────────────
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      if (dot.classList.contains('mobile-dot--disabled')) return;
+      var target = parseInt(dot.dataset.dotTarget, 10);
+      var section = document.getElementById('page-' + target);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ── 更新圓點 active 狀態 ──────────────────────────
+  function setActiveDot(index) {
+    if (index === currentDotIndex) return;
+    currentDotIndex = index;
+
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle('mobile-dot--active', i === index);
+      // visited: 0 .. index-1
+      if (!dot.classList.contains('mobile-dot--disabled')) {
+        dot.classList.toggle('mobile-dot--visited', i < index);
+      }
+    });
+
+    // 同步 overlay 選單 active 狀態
+    menuItems.forEach(function (item) {
+      var t = parseInt(item.dataset.mobileTarget, 10);
+      item.classList.toggle('mobile-menu-item--active', t === index);
+    });
+  }
+
+  // ── IntersectionObserver ──────────────────────────
+  function initObserver() {
+    if (observer) observer.disconnect();
+
+    var ratioMap = new Map();
+
+    observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        ratioMap.set(entry.target, entry.intersectionRatio);
+      });
+
+      // 找出可視比例最高的 section
+      var maxRatio = 0;
+      var activeIndex = currentDotIndex;
+      ratioMap.forEach(function (ratio, section) {
+        if (ratio > maxRatio) {
+          maxRatio = ratio;
+          activeIndex = parseInt(section.dataset.page, 10);
+        }
+      });
+
+      if (maxRatio > 0.05) {
+        setActiveDot(activeIndex);
+      }
+    }, {
+      threshold: [0, 0.1, 0.25, 0.5, 0.75, 1.0]
+    });
+
+    sections.forEach(function (section) {
+      observer.observe(section);
+    });
+  }
+
+  // ── 行動模式初始化 / 清理 ─────────────────────────
+  function enterMobileMode() {
+    initObserver();
+  }
+
+  function exitMobileMode() {
+    if (observer) {
+      observer.disconnect();
+      observer = null;
+    }
+    closeMenu();
+    // 切換回桌機時重新載入，確保 translateX 狀態正確
+    window.location.reload();
+  }
+
+  // ── 監聽斷點切換 ─────────────────────────────────
+  MOBILE_MQ.addEventListener('change', function (e) {
+    if (e.matches) {
+      enterMobileMode();
+    } else {
+      exitMobileMode();
+    }
+  });
+
+  // ── 初始化 ────────────────────────────────────────
+  if (MOBILE_MQ.matches) {
+    enterMobileMode();
+  }
+})();
