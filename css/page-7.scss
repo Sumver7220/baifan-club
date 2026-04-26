@@ -23,9 +23,18 @@
         display: block;
     }
 
+    #page-7 .moment-cta {
+        position: static;
+        display: block;
+        text-align: center;
+        margin: 1rem 0 0;
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+
     .donate-main {
         width: 100%;
         height: auto;
+        overflow: visible;
         display: flex;
         flex-direction: column;
         align-items: center;
