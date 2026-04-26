@@ -340,3 +340,80 @@
     text-decoration-thickness: 0.08em;
     z-index: 2;
 }
+
+/* ─── Page 5 行動版（菜單）─────────────────────────── */
+@media (max-width: 1199px) {
+    #page-5 {
+        display: block;
+    }
+
+    .menu-main {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 0 0.75rem 2rem;
+        gap: 0.5rem;
+    }
+
+    .menu-main-left {
+        order: 1;
+        height: auto;
+        min-height: unset;
+    }
+
+    .menu-main-title {
+        padding: 1.5rem 0 0.75rem;
+
+        h1 {
+            font-size: clamp(2.5rem, 12vw, 5rem);
+        }
+
+        p {
+            font-size: clamp(0.7rem, 2.5vw, 0.95rem);
+        }
+    }
+
+    .menu-main-poster {
+        flex: unset;
+        width: 100%;
+        min-height: unset;
+        cursor: zoom-in;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-height: none;
+            max-width: 100%;
+        }
+    }
+
+    .menu-main-right {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        min-height: unset;
+    }
+
+    .menu-card,
+    .menu-card-wide {
+        width: 100%;
+        min-height: unset;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: unset;
+        }
+    }
+
+    .menu-cta {
+        order: 3;
+        position: static;
+        display: block;
+        text-align: center;
+        margin: 1rem 0 0;
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+}
