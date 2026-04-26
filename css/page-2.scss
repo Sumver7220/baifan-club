@@ -53,6 +53,7 @@
 }
 
 .customer-panel {
+	align-content: center;
 	opacity: 0.8;
 	font-family: 'BaifanFangsong', 'BaifanCustom', serif;
 	font-size: var(--font-lg-fluid);
@@ -162,4 +163,62 @@
 	text-decoration-thickness: 0.08em;
 	text-underline-offset: 0.18em;
 	text-decoration-color: rgba(255, 255, 255, 0.92);
+}
+
+/* ─── Page 2 行動版（顧客守則）────────────────────── */
+@media (max-width: 1199px) {
+	#page-2 {
+		display: block;
+	}
+
+	.customer-content {
+		width: 100%;
+		height: auto;
+		justify-content: flex-start;
+		padding: 0 1.25rem 2rem;
+	}
+
+	.customer-title {
+		padding-top: 1.5rem;
+		padding-bottom: 0.5rem;
+
+		h1 {
+			font-size: clamp(1.5rem, 6vw, 2.2rem);
+			letter-spacing: 0.4em;
+		}
+	}
+
+	.customer-panel {
+		width: 100%;
+	}
+
+	.customer-panel-heading {
+		font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+	}
+
+	.customer-intro {
+		font-size: clamp(0.8rem, 3vw, 0.95rem);
+		letter-spacing: 0.08em;
+	}
+
+	.rule-area {
+		padding-left: 1.25rem;
+
+		li {
+			font-size: clamp(0.8rem, 3vw, 0.95rem);
+			line-height: 1.95;
+			letter-spacing: 0.06em;
+		}
+	}
+
+	.customer-bottom {
+		width: 100%;
+	}
+
+	.customer-cta {
+		position: static;
+		display: inline-flex;
+		margin: 1rem 0 0;
+		font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+	}
 }
