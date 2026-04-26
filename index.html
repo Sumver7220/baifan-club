@@ -7,6 +7,15 @@
     <meta name="description" content="白飯俱樂部 Rice Club — 沉浸式夜晚體驗" />
   </head>
   <body>
+    <!-- Mobile sticky header — hidden on desktop via CSS -->
+    <header class="mobile-header" aria-label="行動版主導覽">
+      <span class="mobile-header-logo">白飯俱樂部</span>
+      <button class="mobile-hamburger" type="button" aria-label="開啟導覽選單" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
     <div class="viewport">
       <div class="track" id="track">
         <section class="page" id="page-0" data-page="0">
@@ -120,6 +129,10 @@
           </div>
         </section>
         <section class="page" id="page-3" data-page="3">
+          <div class="mobile-page-label" aria-hidden="true">
+            <h2>店員介紹</h2>
+            <p>STAFF</p>
+          </div>
           <div class="clerk-content">
             <!-- 店長：跨 2 欄 × 2 列 -->
             <div class="clerk-card" data-clerk-id="1" data-clerk-name="一桶白飯">
@@ -282,6 +295,10 @@
         </section>
         <section class="page" id="page-6" data-page="6">
           <div class="moment-main">
+            <div class="mobile-page-label" aria-hidden="true">
+              <h2>精彩瞬間</h2>
+              <p>MOMENTS</p>
+            </div>
             <div class="moment-grid" aria-label="精彩瞬間圖片牆">
               <figure class="moment-card moment-card-left-top">
                 <img src="assets/images/moment_01.png" alt="精彩瞬間 01" />
@@ -315,6 +332,10 @@
         </section>
         <section class="page" id="page-8" data-page="8">
           <div class="environment-main">
+            <div class="mobile-page-label" aria-hidden="true">
+              <h2>店內環境</h2>
+              <p>SPACE</p>
+            </div>
             <div class="environment-grid" aria-label="店內環境照片牆">
               <figure class="environment-card environment-card-row1">
                 <img
@@ -381,6 +402,75 @@
           </div>
         </section>
       </div>
+    </div>
+
+    <!-- Mobile full-screen overlay menu — hidden by default -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true">
+      <div class="mobile-menu-top">
+        <span class="mobile-menu-logo">白飯俱樂部</span>
+        <button class="mobile-menu-close" type="button" aria-label="關閉導覽選單">✕</button>
+      </div>
+      <nav class="mobile-menu-list" aria-label="頁面導覽">
+        <button class="mobile-menu-item mobile-menu-item--active" type="button" data-mobile-target="0">
+          <span class="mobile-menu-num">01</span>
+          <span class="mobile-menu-cn">入口</span>
+          <span class="mobile-menu-en">ENTRY</span>
+        </button>
+        <button class="mobile-menu-item" type="button" data-mobile-target="1">
+          <span class="mobile-menu-num">02</span>
+          <span class="mobile-menu-cn">品牌故事</span>
+          <span class="mobile-menu-en">ABOUT</span>
+        </button>
+        <button class="mobile-menu-item" type="button" data-mobile-target="2">
+          <span class="mobile-menu-num">03</span>
+          <span class="mobile-menu-cn">顧客守則</span>
+          <span class="mobile-menu-en">RULES</span>
+        </button>
+        <button class="mobile-menu-item" type="button" data-mobile-target="3">
+          <span class="mobile-menu-num">04</span>
+          <span class="mobile-menu-cn">店員介紹</span>
+          <span class="mobile-menu-en">STAFF</span>
+        </button>
+        <button class="mobile-menu-item" type="button" data-mobile-target="4">
+          <span class="mobile-menu-num">05</span>
+          <span class="mobile-menu-cn">服務內容</span>
+          <span class="mobile-menu-en">SERVICE</span>
+        </button>
+        <button class="mobile-menu-item" type="button" data-mobile-target="5">
+          <span class="mobile-menu-num">06</span>
+          <span class="mobile-menu-cn">菜單</span>
+          <span class="mobile-menu-en">MENU</span>
+        </button>
+        <button class="mobile-menu-item" type="button" data-mobile-target="6">
+          <span class="mobile-menu-num">07</span>
+          <span class="mobile-menu-cn">精彩瞬間</span>
+          <span class="mobile-menu-en">MOMENTS</span>
+        </button>
+        <button class="mobile-menu-item mobile-menu-item--disabled" type="button" data-mobile-target="7" aria-disabled="true">
+          <span class="mobile-menu-num">08</span>
+          <span class="mobile-menu-cn">斗內香檳王</span>
+          <span class="mobile-menu-en">DONATE</span>
+        </button>
+        <button class="mobile-menu-item" type="button" data-mobile-target="8">
+          <span class="mobile-menu-num">09</span>
+          <span class="mobile-menu-cn">店內環境</span>
+          <span class="mobile-menu-en">SPACE</span>
+        </button>
+      </nav>
+      <div class="mobile-menu-footer">白飯俱樂部 © 2024</div>
+    </div>
+
+    <!-- Mobile dot nav — position: fixed, hidden on desktop via CSS -->
+    <div class="mobile-dot-nav" aria-hidden="true">
+      <button class="mobile-dot mobile-dot--active" type="button" data-dot-target="0" aria-label="第 1 頁：入口"></button>
+      <button class="mobile-dot" type="button" data-dot-target="1" aria-label="第 2 頁：品牌故事"></button>
+      <button class="mobile-dot" type="button" data-dot-target="2" aria-label="第 3 頁：顧客守則"></button>
+      <button class="mobile-dot" type="button" data-dot-target="3" aria-label="第 4 頁：店員介紹"></button>
+      <button class="mobile-dot" type="button" data-dot-target="4" aria-label="第 5 頁：服務內容"></button>
+      <button class="mobile-dot" type="button" data-dot-target="5" aria-label="第 6 頁：菜單"></button>
+      <button class="mobile-dot" type="button" data-dot-target="6" aria-label="第 7 頁：精彩瞬間"></button>
+      <button class="mobile-dot mobile-dot--disabled" type="button" data-dot-target="7" aria-label="第 8 頁：斗內香檳王（即將推出）" aria-disabled="true"></button>
+      <button class="mobile-dot" type="button" data-dot-target="8" aria-label="第 9 頁：店內環境"></button>
     </div>
 
     <nav class="bottom-nav" aria-label="主選單">
