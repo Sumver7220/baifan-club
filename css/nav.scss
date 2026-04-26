@@ -96,21 +96,6 @@
   line-height: 1;
 }
 
-/* ─── 手機 RWD ──────────────────────────────────── */
-@media (max-width: 47.9375rem) {
-  .nav-icon {
-    width: var(--nav-icon-size-mobile);
-    height: var(--nav-icon-size-mobile);
-  }
-
-  .nav-label {
-    font-size: var(--font-xs);
-  }
-}
-
-/* ─── Hover（桌機）──────────────────────────────── */
-@media (hover: hover) {
-  .nav-item:not(.active):hover {
-    opacity: 0.75;
-  }
+.nav-item:not(.active):hover {
+  opacity: 0.75;
 }

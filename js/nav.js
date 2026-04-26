@@ -120,22 +120,10 @@
 
 // ─── Clerk Modal Management ───────────────────────────────────
 (function () {
-  const introData = {
-    1: "我是這間店的店長，歡迎來到白飯俱樂部。最喜歡和各位老闆一起度過愉快的夜晚。",
-    2: "Hi！我是小姐姐，擅長烹飪各式餐點，希望能為你帶來美味的體驗～",
-    3: "大家好呀～我是甜心，喜歡和老闆們聊天，歡迎常來玩唷！",
-    4: "皮皮在這裡！我最愛唱歌和表演，一起來享受這個夜晚吧♪",
-    5: "我是寶寶，雖然年紀不大但服務超用心，歡迎點我聊天～",
-    6: "天使報到～我喜歡做各式甜點，希望你會喜歡呦！",
-    default: "歡迎認識我！我在白飯俱樂部為你服務。",
-  };
-
   const modal = document.getElementById("clerkModal");
-  const modalName = document.getElementById("clerkModalName");
-  const modalDesc = document.getElementById("clerkModalDesc");
   const modalImage = document.getElementById("clerkModalImage");
 
-  if (!modal || !modalName || !modalDesc || !modalImage) {
+  if (!modal || !modalImage) {
     return;
   }
 
@@ -143,14 +131,10 @@
 
   function openClerkModal(clerkCard) {
     clerkModalOpener = document.activeElement;
-    const clerkId = clerkCard.dataset.clerkId;
     const clerkName = clerkCard.dataset.clerkName || "店員";
     const clerkImage = clerkCard.querySelector("img");
     const clerkImageSrc = clerkImage ? clerkImage.src : "";
-    const intro = introData[clerkId] || introData.default;
 
-    modalName.textContent = clerkName;
-    modalDesc.textContent = intro;
     modalImage.src = clerkImageSrc;
     modalImage.alt = clerkName;
     modal.setAttribute("aria-hidden", "false");

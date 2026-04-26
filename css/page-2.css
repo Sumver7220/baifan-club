@@ -113,7 +113,7 @@
 }
 
 .rule-area {
-  font-size: var(--font-md-fluid);
+  font-size: var(--font-lg-fluid);
   font-weight: lighter;
   text-align: left;
   justify-self: center;

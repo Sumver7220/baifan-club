@@ -40,15 +40,7 @@
 .clerk-modal-content {
     position: relative;
     z-index: 1001;
-    background: rgba(20, 10, 40, 0.95);
-    border-radius: 16px;
-    max-width: 90vw;
-    max-height: 90vh;
-    padding: 2rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
+    background: transparent;
     opacity: 0;
     transform: scale(0.97) translateY(6px);
     transition:
@@ -67,8 +59,8 @@
 
 .clerk-modal-close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: -0.75rem;
+    right: -0.75rem;
     width: 2.75rem;
     height: 2.75rem;
     min-width: 2.75rem;
@@ -92,50 +84,14 @@
 }
 
 .clerk-modal-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: center;
+    display: flex;
 
     img {
-        width: 100%;
-        max-height: 60vh;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 12px;
-    }
-}
-
-.clerk-modal-info {
-    color: #ffffff;
-
-    h2 {
-        font-size: var(--font-modal-heading-fluid);
-        margin-bottom: 1rem;
-        color: #c9a84c;
-        letter-spacing: 0.1em;
-    }
-
-    p {
-        font-size: var(--font-modal-body-fluid);
-        line-height: 1.8;
-        color: rgba(255, 255, 255, 0.8);
-        margin-bottom: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .clerk-modal-content {
-        max-width: 95vw;
-        padding: 1.5rem;
-    }
-
-    .clerk-modal-body {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .clerk-modal-info h2 {
-        font-size: var(--font-modal-body-fluid);
+        max-width: 88vw;
+        max-height: 88vh;
+        width: auto;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
     }
 }

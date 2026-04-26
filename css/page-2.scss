@@ -56,16 +56,26 @@
 	opacity: 0.8;
 	font-family: 'BaifanFangsong', 'BaifanCustom', serif;
 	font-size: var(--font-lg-fluid);
-	justify-items: center;
-	padding: 1rem;
+	text-align: center;
+	padding: 1rem 4rem;
 	width: min(50vw, 640px);
 	flex: 1;
 	min-height: 0;
+	overflow-y: auto;
 	background: #8066bb66;
 	border-radius: 48px;
 	backdrop-filter: blur(2px);
-
 	-webkit-backdrop-filter: blur(2px);
+}
+
+.customer-panel-heading {
+	margin-bottom: 0.5rem;
+}
+
+.customer-intro {
+	font-size: 1rem;
+	opacity: 0.85;
+	margin-bottom: 0.75rem;
 }
 
 .customer-divider {
@@ -108,8 +118,7 @@
 	font-family: 'BaifanFangsong', 'BaifanCustom', serif;
 	position: absolute;
 	right: 3rem;
-	top: 50%;
-	transform: translateY(-50%);
+	bottom: 1.5rem;
 	margin: 0;
 	font-size: var(--font-lg-fluid);
 	letter-spacing: 0.125rem;
@@ -127,20 +136,25 @@
 }
 
 .rule-area {
-
-	font-size: var(--font-md-fluid);
-	font-weight: lighter;
+	list-style: none;
+	padding: 0 0 0 1.2em;
+	margin: 0;
 	text-align: left;
-	justify-self: center;
-	padding-left: 1.2em;
-	/* 1. 將整個段落的內容往右推 */
-	text-indent: -1.2em;
-	/* 2. 將第一行往左拉回，剛好容納 '• ' 的寬度 */
-	margin-top: 0;
-	margin-bottom: 8px;
-	/* 設定項目之間的間距 */
+	font-size: 1.25rem;
+	font-weight: lighter;
 	line-height: 1.6;
-	/* 設定行高，讓閱讀更舒適 */
+
+	li {
+		text-indent: -1.2em;
+
+		&+li {
+			margin-top: 0.3em;
+		}
+
+		&::before {
+			content: "• ";
+		}
+	}
 }
 
 .rule-underline {
@@ -149,9 +163,3 @@
 	text-underline-offset: 0.18em;
 	text-decoration-color: rgba(255, 255, 255, 0.92);
 }
-
-// @media (max-width: var(--bp-mobile-max)) {
-// 	#page-2 {
-// 		background-position: 62% center;
-// 	}
-// }
