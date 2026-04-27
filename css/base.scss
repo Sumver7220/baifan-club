@@ -2,7 +2,7 @@
   font-family: 'BaifanCustom';
   src:
     local('匯文明朝體GBK'),
-    url('../assets/fonts/匯文明朝體GBK.ttf') format('truetype'),
+    url('../assets/fonts/匯文明朝體GBK.woff2') format('woff2'),
     url('../assets/fonts/cwTeXQMing-Medium.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
@@ -141,6 +141,7 @@ html {
 
 /* ─── 行動版基礎重置 ─────────────────────────────── */
 @media (max-width: 1199px) {
+
   html,
   body {
     width: 100%;
@@ -171,7 +172,8 @@ html {
     min-height: 100dvh;
     overflow: visible !important;
     flex-shrink: unset !important;
-    scroll-margin-top: 48px; /* sticky header 高度補償 */
+    scroll-margin-top: 48px;
+    /* sticky header 高度補償 */
   }
 
   /* 桌機底部導覽列隱藏 */
