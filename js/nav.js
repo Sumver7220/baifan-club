@@ -178,6 +178,62 @@
   });
 })();
 
+// ─── Clerk Pagination ───────────────────────────────────────
+(function () {
+  const container = document.querySelector(".clerk-content");
+  const pagination = document.querySelector(".clerk-pagination");
+  if (!container || !pagination) return;
+
+  const prevBtn = pagination.querySelector(".clerk-pagination-prev");
+  const nextBtn = pagination.querySelector(".clerk-pagination-next");
+  const currentEl = pagination.querySelector(".clerk-pagination-current");
+  const totalEl = pagination.querySelector(".clerk-pagination-total");
+  if (!prevBtn || !nextBtn || !currentEl || !totalEl) return;
+
+  const pageSize =
+    Number.parseInt(container.dataset.pageSize, 10) || Number.POSITIVE_INFINITY;
+  const cards = Array.from(container.querySelectorAll(".clerk-card"));
+  let currentSubPage = 0;
+
+  function totalPages() {
+    return Math.max(1, Math.ceil(cards.length / pageSize));
+  }
+
+  function render() {
+    const total = totalPages();
+    if (currentSubPage > total - 1) currentSubPage = total - 1;
+    if (currentSubPage < 0) currentSubPage = 0;
+
+    const start = currentSubPage * pageSize;
+    const end = start + pageSize;
+    cards.forEach(function (card, i) {
+      card.hidden = !(i >= start && i < end);
+    });
+
+    currentEl.textContent = String(currentSubPage + 1);
+    totalEl.textContent = String(total);
+    prevBtn.disabled = currentSubPage <= 0;
+    nextBtn.disabled = currentSubPage >= total - 1;
+    pagination.dataset.singlePage = total <= 1 ? "true" : "false";
+  }
+
+  prevBtn.addEventListener("click", function () {
+    if (currentSubPage > 0) {
+      currentSubPage -= 1;
+      render();
+    }
+  });
+
+  nextBtn.addEventListener("click", function () {
+    if (currentSubPage < totalPages() - 1) {
+      currentSubPage += 1;
+      render();
+    }
+  });
+
+  render();
+})();
+
 // ─── Menu Modal Management ──────────────────────────────────
 (function () {
   const menuItems = Array.from(

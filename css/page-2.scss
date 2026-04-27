@@ -66,6 +66,8 @@
 	border-radius: 48px;
 	backdrop-filter: blur(2px);
 	-webkit-backdrop-filter: blur(2px);
+	display: flex;
+	flex-direction: column;
 }
 
 .customer-panel-heading {
@@ -138,7 +140,9 @@
 .rule-area {
 	list-style: none;
 	padding: 0 0 0 1.2em;
-	margin: 0;
+	margin: auto;
+	width: fit-content;
+	max-width: 100%;
 	text-align: left;
 	font-size: 1.25rem;
 	font-weight: lighter;

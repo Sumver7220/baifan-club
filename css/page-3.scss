@@ -42,6 +42,10 @@
   }
 }
 
+.clerk-card[hidden] {
+  display: none;
+}
+
 .clerk-card-coming-soon {
   cursor: default;
   background: linear-gradient(180deg, #88888841, #00000041);
@@ -63,6 +67,70 @@
   grid-row: 1 / 3;
 }
 
+.clerk-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 1rem 0 0.5rem;
+  font-family: 'BaifanFangsong', 'BaifanCustom', serif;
+
+  &-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    padding: 0;
+    background: transparent;
+    border: 1px solid rgba(227, 169, 241, 0.4);
+    border-radius: 999px;
+    color: rgba(227, 169, 241, 0.85);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+      background 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease,
+      box-shadow 200ms ease,
+      opacity 200ms ease;
+
+    &:hover:not(:disabled) {
+      background: rgba(227, 169, 241, 0.12);
+      border-color: rgba(227, 169, 241, 0.85);
+      color: #fff;
+      box-shadow: 0 0 0.6rem rgba(255, 95, 214, 0.45);
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(227, 169, 241, 0.9);
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  &-indicator {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    color: rgba(227, 169, 241, 0.85);
+    font-size: var(--font-md-fluid);
+    letter-spacing: 0.12em;
+    min-width: 4rem;
+    justify-content: center;
+    user-select: none;
+  }
+
+  &-divider {
+    opacity: 0.5;
+  }
+}
+
 .clerk-cta {
   display: inline-flex;
   align-items: center;
@@ -71,7 +139,10 @@
   min-width: 2.75rem;
   padding: 0.45rem 0.9rem;
   font-family: 'BaifanFangsong', 'BaifanCustom', serif;
-  margin: 0 0 1.5rem;
+  position: absolute;
+  right: 3rem;
+  bottom: calc(var(--nav-height) + 1.5rem);
+  margin: 0;
   font-size: var(--font-lg-fluid);
   letter-spacing: 0.125rem;
   color: #e3a9f1c8;
